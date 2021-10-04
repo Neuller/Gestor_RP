@@ -16,14 +16,13 @@
 </html>
 
 <script type="text/javascript">
-	$(document).ready(function($) {
+	$(document).ready(function() {
 		initForm();
 		setEvents();
 	});
 
 	function initForm() {
-		$('#menuPrincipal').load('./Views/Menu/MenuPrincipal.php');
-		$('#conteudo').load('./Views/Principal/Principal.php');
+		$("#menuPrincipal").load("./Views/Menu/MenuPrincipal.php");
 	}
 
 	function setEvents() {

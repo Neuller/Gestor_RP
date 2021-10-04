@@ -11,10 +11,9 @@
                 <h3><strong>CADASTRAR CAIXA</strong></h3>
             </div>
         </div>
-        <!-- FORMULÁRIO -->
         <div class="divFormulario">
             <div class="mx-auto">
-                <form id="formulario">
+                <form id="formularioCadastro">
                     <div>
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div>
@@ -33,25 +32,39 @@
                 </form>
             </div>
         </div>
+
+        <div>
+            <div class="text-center">
+                <h3><strong>CAIXAS CADASTRADAS</strong></h3>
+            </div>
+            <hr>
+        </div>
+        <div class="row">
+            <div class="col-sm-12" align="center">
+                <div id="tabelaCaixas"></div>
+            </div>
+        </div>
+
     </div>
 </body>
 
 </html>
 
 <script type="text/javascript">
-    $(document).ready(function($) {
+    $(document).ready(function() {
         initForm();
         setEvents();
     });
 
     function initForm() {
-        validarForm("formulario");
+        validarForm("formularioCadastro");
         camposObrigatorios(["descricao"], true);
+        $('#tabelaCaixas').load("./Views/Estoque/TabelaCaixas.php");
     }
 
     function setEvents() {
         $('#btnCadastrar').click(function() {
-            var validator = $("#formulario").validate();
+            var validator = $("#formularioCadastro").validate();
             validator.form();
             var checkValidator = validator.checkForm();
 
@@ -60,15 +73,17 @@
                 return false;
             }
 
-            dados = $("#formulario").serialize();
+            dados = $("#formularioCadastro").serialize();
 
             $.ajax({
                 type: "POST",
                 data: dados,
                 url: "./Procedimentos/Estoque/CadastrarCaixa.php",
                 success: function(r) {
+                    console.log(r);
                     if (r > 0) {
-                        $("#formulario")[0].reset();
+                        console.log(r);
+                        $("#formularioCadastro")[0].reset();
                         alertify.success("CADASTRO REALIZADO");
                     } else {
                         alertify.error("NÃO FOI POSSÍVEL CADASTRAR");
@@ -76,5 +91,9 @@
                 }
             });
         });
+    }
+
+    function visualizar(id) {
+        $('#conteudo').load("./Views/Estoque/VisualizarCaixa.php?id=" + id);
     }
 </script>

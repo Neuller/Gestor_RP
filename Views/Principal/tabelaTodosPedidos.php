@@ -9,10 +9,8 @@ $obj = new pedidos();
 $objUtils = new utilitarios();
 
 
-$sql = "SELECT id_pedido , codigo, nome_cliente, id_caixa, observacoes, data_entrada, data_saida, status
+$sql = "SELECT id_pedido , codigo, nome_cliente, id_caixa, observacoes, data_entrada, data_saida, status, data_saida_baixa
 FROM estoque_pedidos 
-WHERE status NOT LIKE 'PENDENTE BAIXA NO APP'
-AND status NOT LIKE 'ENTREGA E BAIXA REALIZADA'
 ORDER BY id_pedido DESC";
 
 $result = mysqli_query($conexao, $sql);
@@ -22,33 +20,28 @@ $result = mysqli_query($conexao, $sql);
 
 <body>
 	<div class="table-responsive">
-		<table id="tabelaPedidosAguardandoRetirada" class="table table-hover table-condensed table-bordered text-center table-striped">
+		<table id="tabelaTodosPedidos" class="table table-hover table-condensed table-bordered text-center table-striped">
 			<thead>
 				<tr>
 					<td>CÓDIGO</td>
 					<td>NOME DO CLIENTE</td>
-					<td>LOCALIZAÇÃO</td>
-					<td>STATUS</td>
+					<td>DATA DE ENTREGA AO CLIENTE</td>
 					<td>VISUALIZAR</td>
-					<td>ENTREGA RÁPIDA</td>
 				</tr>
 			</thead>
 			<tbody>
 				<?php
 				while ($mostrar = mysqli_fetch_array($result)) {
+                    $data = date('d/m/Y', strtotime($mostrar[6]));
 					echo
 					'
 						<tr>
 						<td>' . $mostrar[1] . '</td>
 						<td>' . $mostrar[2] . '</td>
-						<td>' . $objUtils -> nomeEstoqueCaixa($mostrar[3]) . '</td>
-						<td>' . $mostrar[7] . '</td>
+						<td>' . $data . '</td>
 						<td>' . '<span class="btn btn-primary btn-lg" data-toggle="modal" data-target="#visualizarPedido" title="VISUALIZAR" onclick="visualizarPedido('.$mostrar[0].')">
 						<span class="glyphicon glyphicon-search"></span>
-						</span>' . '</td>		
-                        <td>' . '<span class="btn btn-success btn-lg" data-toggle="modal" data-target="#entregarPedido" title="ENTREGA RÁPIDA" onclick="entregarPedido('.$mostrar[0].')">
-						<span class="glyphicon glyphicon-ok-sign"></span>
-						</span>' . '</td>					
+						</span>' . '</td>				
 						</tr>
 						';
 				}
@@ -62,7 +55,7 @@ $result = mysqli_query($conexao, $sql);
 
 <script>
 	$(document).ready(function() {
-		$("#tabelaPedidosAguardandoRetirada").dataTable({
+		$('#tabelaTodosPedidos').dataTable({
 			language: {
 				lengthMenu: "_MENU_ REGISTROS POR PÁGINA",
 				zeroRecords: "NENHUM REGISTRO ENCONTRADO",
