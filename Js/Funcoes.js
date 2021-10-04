@@ -35,3 +35,10 @@ const limparCampos = function (nomeCampos) {
         $("#" + valor).val("");
     });
 };
+
+const getValor = function (nomeCampo) {
+    let valor = $("#" + nomeCampo).val();
+    valor = Array.isArray(valor) ? valor.join("") : valor;
+
+    return valor ? valor : "";
+};

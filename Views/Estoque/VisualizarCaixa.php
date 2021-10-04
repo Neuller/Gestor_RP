@@ -4,7 +4,7 @@
 <head>
     <?php require_once "../../Classes/Conexao.php";
     $c = new conectar();
-    $conexao = $c -> conexao();
+    $conexao = $c->conexao();
     $id = $_GET["id"];
     ?>
 </head>
@@ -20,9 +20,8 @@
             <div class="mx-auto">
                 <form id="formulario">
                     <div>
-                        <div>
-                            <input type="text" hidden="" id="id" name="id">
-                        </div>
+                        <input type="text" hidden="" id="id" name="id">
+
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div>
                                 <label>DESCRIÇÃO</label>
@@ -32,8 +31,8 @@
 
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div>
-                                <span class="btn btn-warning" id="btnSalvar" title="SALVAR">SALVAR</span>
-                                <span class="btn btn-danger" id="btnVoltar" title="VOLTAR">VOLTAR</span>
+                                <span class="btn btn-warning btn-lg" id="btnSalvar" title="SALVAR">SALVAR</span>
+                                <span class="btn btn-danger btn-lg" id="btnVoltar" title="VOLTAR" onclick="voltar()">VOLTAR</span>
                             </div>
                         </div>
                     </div>
@@ -83,10 +82,6 @@
                     }
                 }
             });
-
-            $("#btnVoltar").click(function() {
-                $("#conteudo").load("./Views/Estoque/Caixas.php");
-            });
         });
     }
 
@@ -97,9 +92,13 @@
             url: "./Procedimentos/Estoque/ObterDadosCaixa.php",
             success: function(r) {
                 dado = jQuery.parseJSON(r);
-                $("#id").val(dado["id_caixa"]);
+                $("#id").val(dado["id"]);
                 $("#descricao").val(dado["descricao"]);
             }
         });
+    }
+
+    function voltar() {
+        $("#conteudo").load("./Views/Estoque/Caixas.php");
     }
 </script>

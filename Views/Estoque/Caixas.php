@@ -84,6 +84,7 @@
                     if (r > 0) {
                         console.log(r);
                         $("#formularioCadastro")[0].reset();
+                        $('#tabelaCaixas').load("./Views/Estoque/TabelaCaixas.php");
                         alertify.success("CADASTRO REALIZADO");
                     } else {
                         alertify.error("NÃO FOI POSSÍVEL CADASTRAR");

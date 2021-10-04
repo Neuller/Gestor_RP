@@ -4,7 +4,7 @@ require_once "../../Classes/Pedidos.php";
 require_once "../../Classes/Utilitarios.php";
 
 $c = new conectar();
-$conexao = $c -> conexao();
+$conexao = $c->conexao();
 $obj = new pedidos();
 $objUtils = new utilitarios();
 
@@ -32,14 +32,18 @@ $result = mysqli_query($conexao, $sql);
 			<tbody>
 				<?php
 				while ($mostrar = mysqli_fetch_array($result)) {
-                    $data = date('d/m/Y', strtotime($mostrar[6]));
+					if ($mostrar[6] != null) {
+						$data = date('d/m/Y', strtotime($mostrar[6]));
+					} else {
+						$data = "";
+					}
 					echo
 					'
 						<tr>
 						<td>' . $mostrar[1] . '</td>
 						<td>' . $mostrar[2] . '</td>
 						<td>' . $data . '</td>
-						<td>' . '<span class="btn btn-primary btn-lg" data-toggle="modal" data-target="#visualizarPedido" title="VISUALIZAR" onclick="visualizarPedido('.$mostrar[0].')">
+						<td>' . '<span class="btn btn-primary btn-lg" data-toggle="modal" data-target="#visualizarPedido" title="VISUALIZAR" onclick="visualizarPedido(' . $mostrar[0] . ')">
 						<span class="glyphicon glyphicon-search"></span>
 						</span>' . '</td>				
 						</tr>
