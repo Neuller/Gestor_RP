@@ -2,6 +2,10 @@
 <html>
 
 <head>
+    <?php require_once "../../Classes/Conexao.php";
+    $c = new conectar();
+    $conexao = $c->conexao();
+    ?>
 </head>
 
 <body>
@@ -35,23 +39,29 @@
                                 <label>LOCALIZAÇÃO</label>
                                 <select class="form-control input-sm" id="caixaSelect" name="caixaSelect">
                                     <option value="">SELECIONE UMA CAIXA</option>
-                                    <option value="">CAIXA 1</option>
-                                    <option value="">CAIXA 2</option>
+                                    <?php
+                                    $sql = "SELECT id_caixa, descricao FROM estoque_caixas ORDER BY id_caixa DESC";
+                                    $result = mysqli_query($conexao, $sql);
+
+                                    while ($caixa = mysqli_fetch_row($result)) :
+                                    ?>
+                                        <option value="<?php echo $caixa[0] ?>"><?php echo $caixa[1] ?></option>
+                                    <?php endwhile; ?>
                                 </select>
                             </div>
                         </div>
 
                         <div class="col-md-12 col-sm-12 col-xs-12 separador">
-                                <div class="text-left">
-                                    <h4><strong>OBSERVAÇÕES </strong> <span class="glyphicon glyphicon-exclamation-sign ml-15"></span></h4>
-                                </div>
-                                <hr>
+                            <div class="text-left">
+                                <h4><strong>OBSERVAÇÕES </strong> <span class="glyphicon glyphicon-exclamation-sign ml-15"></span></h4>
                             </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12 itensFormulario">
-                                <div>
-                                    <textarea type="text" class="form-control input-sm text-uppercase" id="observacao" name="observacao" maxlength="1000" rows="3" style="resize: none"></textarea>
-                                </div>
+                            <hr>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 itensFormulario">
+                            <div>
+                                <textarea type="text" class="form-control input-sm text-uppercase" id="observacao" name="observacao" maxlength="1000" rows="3" style="resize: none"></textarea>
                             </div>
+                        </div>
 
                         <!-- BOTÕES -->
                         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -74,9 +84,37 @@
         setEvents();
     });
 
-    function initForm() {}
+    function initForm() {
+        validarForm("formulario");
+        camposObrigatorios(["codigo", "nomeCliente", "caixaSelect"], true);
+    }
 
     function setEvents() {
-        $('#btnCadastrar').click(function() {});
+        $('#btnCadastrar').click(function() {
+            var validator = $("#formulario").validate();
+            validator.form();
+            var checkValidator = validator.checkForm();
+
+            if (checkValidator == false) {
+                alertify.error("PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS");
+                return false;
+            }
+
+            dados = $("#formulario").serialize();
+
+            $.ajax({
+                type: "POST",
+                data: dados,
+                url: "./Procedimentos/Pedidos/CadastrarPedido.php",
+                success: function(r) {
+                    if (r > 0) {
+                        $("#formulario")[0].reset();
+                        alertify.success("CADASTRO REALIZADO");
+                    } else {
+                        alertify.error("NÃO FOI POSSÍVEL CADASTRAR");
+                    }
+                }
+            });
+        });
     }
 </script>

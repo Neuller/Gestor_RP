@@ -44,9 +44,37 @@
         setEvents();
     });
 
-    function initForm() {}
+    function initForm() {
+        validarForm("formulario");
+        camposObrigatorios(["descricao"], true);
+    }
 
     function setEvents() {
-        $('#btnCadastrar').click(function() {});
+        $('#btnCadastrar').click(function() {
+            var validator = $("#formulario").validate();
+            validator.form();
+            var checkValidator = validator.checkForm();
+
+            if (checkValidator == false) {
+                alertify.error("PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS");
+                return false;
+            }
+
+            dados = $("#formulario").serialize();
+
+            $.ajax({
+                type: "POST",
+                data: dados,
+                url: "./Procedimentos/Estoque/CadastrarCaixa.php",
+                success: function(r) {
+                    if (r > 0) {
+                        $("#formulario")[0].reset();
+                        alertify.success("CADASTRO REALIZADO");
+                    } else {
+                        alertify.error("NÃO FOI POSSÍVEL CADASTRAR");
+                    }
+                }
+            });
+        });
     }
 </script>
