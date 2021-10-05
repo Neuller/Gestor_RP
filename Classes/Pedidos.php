@@ -68,5 +68,17 @@ class pedidos{
         
         return mysqli_query($conexao, $sql);
     }
+
+    public function CancelarPedido($dados) {
+        $c = new conectar();
+        $conexao = $c -> conexao();
+
+        $sql = "UPDATE estoque_pedidos SET status = 'PEDIDO CANCELADO'
+        WHERE id_pedido  = '$dados[0]'";
+
+        $result = mysqli_query($conexao, $sql);
+        
+        return $dados[0];
+    }
 }
 ?>

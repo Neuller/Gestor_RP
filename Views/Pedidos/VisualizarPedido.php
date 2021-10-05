@@ -189,16 +189,16 @@
     }
 
     function cancelarPedido() {
+        var id = $("#id").val();
         alertify.confirm('ATENÇÃO', 'CONFIRMAR CANCELAMENTO DO PEDIDO?', function() {
             alertify.confirm().close();
             $.ajax({
                 type: "POST",
-                data: "idPedido=" + id,
+                data: "id=" + id,
                 url: "./Procedimentos/Pedidos/CancelarPedido.php",
                 success: function(r) {
                     if (r > 0) {
-                        $('#tabelaPedidosEstoque').load('./Views/Principal/TabelaPedidosEstoque.php');
-                        $('#tabelaPedidosPendentesBaixa').load('./Views/Principal/TabelaPedidosPendentesBaixa.php');
+                        $('#conteudo').load("./Views/Principal/AcompanharPedidos.php");
                         alertify.success("PEDIDO CANCELADO");
                     } else {
                         alertify.error("NÃO FOI POSSÍVEL CANCELAR O PEDIDO");

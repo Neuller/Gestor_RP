@@ -13,6 +13,7 @@ $sql = "SELECT id_pedido , codigo, nome_cliente, id_caixa, observacoes, data_ent
 FROM estoque_pedidos 
 WHERE status NOT LIKE 'PENDENTE BAIXA NO APP'
 AND status NOT LIKE 'ENTREGA E BAIXA REALIZADA'
+AND status NOT LIKE 'PEDIDO CANCELADO'
 ORDER BY id_pedido DESC";
 
 $result = mysqli_query($conexao, $sql);
