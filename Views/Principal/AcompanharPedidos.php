@@ -17,7 +17,7 @@
                 </div>
             </div>
 
-            <div class="row" id="tabelaPedidosEstoque"></div>
+            <div class="row" id="tabelaPedidosPendentesRetirada"></div>
         </div>
 
         <div>
@@ -51,23 +51,23 @@
     });
 
     function initForm() {
-        $('#tabelaPedidosEstoque').load('./Views/Principal/TabelaPedidosEstoque.php');
+        $('#tabelaPedidosPendentesRetirada').load('./Views/Principal/TabelaPedidosPendentesRetirada.php');
         $('#tabelaPedidosPendentesBaixa').load('./Views/Principal/TabelaPedidosPendentesBaixa.php');
         $('#tabelaTodosPedidos').load('./Views/Principal/tabelaTodosPedidos.php');
     }
 
     function setEvents() {}
 
-    function entregarPedido($id) {
+    function entregaRapida(id) {
         alertify.confirm('ATENÇÃO', 'CONFIRMAR ENTREGA RÁPIDA DO PEDIDO?', function() {
             alertify.confirm().close();
             $.ajax({
                 type: "POST",
-                data: "idPedido=" + $id,
+                data: "idPedido=" + id,
                 url: "./Procedimentos/Pedidos/RealizarEntrega.php",
                 success: function(r) {
                     if (r > 0) {
-                        $('#tabelaPedidosEstoque').load('./Views/Principal/TabelaPedidosEstoque.php');
+                        $('#tabelaPedidosPendentesRetirada').load('./Views/Principal/tabelaPedidosPendentesRetirada.php');
                         $('#tabelaPedidosPendentesBaixa').load('./Views/Principal/TabelaPedidosPendentesBaixa.php');
                         alertify.success("ENTREGA REALIZADA");
                     } else {
@@ -78,16 +78,16 @@
         }, function() {});
     }
 
-    function baixaPedido($id) {
+    function baixaPedido(id) {
         alertify.confirm('ATENÇÃO', 'CONFIRMAR BAIXA DO PEDIDO?', function() {
             alertify.confirm().close();
             $.ajax({
                 type: "POST",
-                data: "idPedido=" + $id,
+                data: "idPedido=" + id,
                 url: "./Procedimentos/Pedidos/RealizarBaixaApp.php",
                 success: function(r) {
                     if (r > 0) {
-                        $('#tabelaPedidosEstoque').load('./Views/Principal/TabelaPedidosEstoque.php');
+                        $('#tabelaPedidosPendentesRetirada').load('./Views/Principal/tabelaPedidosPendentesRetirada.php');
                         $('#tabelaPedidosPendentesBaixa').load('./Views/Principal/TabelaPedidosPendentesBaixa.php');
                         alertify.success("BAIXA NO PEDIDO REALIZADA");
                     } else {
@@ -96,5 +96,9 @@
                 }
             });
         }, function() {});
+    }
+
+    function visualizarPedido(id) {
+        $('#conteudo').load("./Views/Pedidos/VisualizarPedido.php?id=" + id);
     }
 </script>

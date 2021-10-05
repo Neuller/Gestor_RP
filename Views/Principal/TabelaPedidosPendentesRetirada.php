@@ -46,7 +46,7 @@ $result = mysqli_query($conexao, $sql);
 						<td>' . '<span class="btn btn-primary btn-lg" data-toggle="modal" data-target="#visualizarPedido" title="VISUALIZAR" onclick="visualizarPedido('.$mostrar[0].')">
 						<span class="glyphicon glyphicon-search"></span>
 						</span>' . '</td>		
-                        <td>' . '<span class="btn btn-success btn-lg" data-toggle="modal" data-target="#entregarPedido" title="ENTREGA RÁPIDA" onclick="entregarPedido('.$mostrar[0].')">
+                        <td>' . '<span class="btn btn-success btn-lg" data-toggle="modal" data-target="#entregaRapida" title="ENTREGA RÁPIDA" onclick="entregaRapida('.$mostrar[0].')">
 						<span class="glyphicon glyphicon-ok-sign"></span>
 						</span>' . '</td>					
 						</tr>
