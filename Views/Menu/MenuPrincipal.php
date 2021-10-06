@@ -16,13 +16,12 @@
                         <li><a id="estoqueCaixas" href="#">CAIXAS</a></li>
                     </ul>
                 </li>
-
-                <li>
-                    <button id="" href="#" title="REPORTAR PROBLEMA" data-toggle="modal" data-target="#modalReport">
-                        <span class="glyphicon glyphicon-exclamation-sign"></span>
-                    </button>
-                </li>
             </ul>
+            <form class="form-inline">
+                <button type="button" id="btnReport" class="btn btn-link btn-lg" title="REPORTAR PROBLEMA" data-toggle="modal" data-target="#modalReport">
+                    <span class="glyphicon glyphicon-exclamation-sign"></span>
+                </button>
+            </form>
         </div>
     </nav>
 </body>
