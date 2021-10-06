@@ -48,7 +48,7 @@ $result = mysqli_query($conexao, $sql);
 						<span class="glyphicon glyphicon-search"></span>
 						</span>' . '</td>		
                         <td>' . '<span class="btn btn-success btn-lg" data-toggle="modal" data-target="#entregaRapida" title="ENTREGA RÁPIDA" onclick="entregaRapida('.$mostrar[0].')">
-						<span class="glyphicon glyphicon-ok-sign"></span>
+						<span class="	glyphicon glyphicon-check"></span>
 						</span>' . '</td>					
 						</tr>
 						';
