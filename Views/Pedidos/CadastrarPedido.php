@@ -27,14 +27,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div>
-                                <label>NOME DO CLIENTE</label>
-                                <input type="text" class="form-control input-sm text-uppercase" id="nomeCliente" name="nomeCliente">
-                            </div>
-                        </div>
-
-                        <div class="col-md-8 col-sm-8 col-xs-8 itensFormulario">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
                             <div>
                                 <label>LOCALIZAÇÃO</label>
                                 <select class="form-control input-sm" id="caixaSelect" name="caixaSelect">
@@ -51,13 +44,20 @@
                             </div>
                         </div>
 
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div>
+                                <label>NOME DO CLIENTE</label>
+                                <input type="text" class="form-control input-sm text-uppercase" id="nomeCliente" name="nomeCliente">
+                            </div>
+                        </div>
+
                         <div class="col-md-12 col-sm-12 col-xs-12 separador">
                             <div class="text-left">
                                 <h4><strong>OBSERVAÇÕES </strong> <span class="glyphicon glyphicon-exclamation-sign ml-15"></span></h4>
                             </div>
                             <hr>
                         </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12 itensFormulario">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
                             <div>
                                 <textarea type="text" class="form-control input-sm text-uppercase" id="observacao" name="observacao" maxlength="1000" rows="3" style="resize: none"></textarea>
                             </div>

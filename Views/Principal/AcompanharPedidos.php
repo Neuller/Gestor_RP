@@ -4,7 +4,7 @@
 <head>
     <?php require_once "../../Classes/Conexao.php";
     $c = new conectar();
-    $conexao = $c->conexao();
+    $conexao = $c -> conexao();
     ?>
 </head>
 
@@ -29,16 +29,6 @@
 
             <div class="row" id="tabelaPedidosPendentesBaixa"></div>
         </div>
-
-        <div>
-            <div>
-                <div class="text-center">
-                    <h3><strong>TODOS OS PEDIDOS</strong></h3>
-                </div>
-            </div>
-
-            <div class="row" id="tabelaTodosPedidos"></div>
-        </div>
     </div>
 </body>
 
@@ -53,7 +43,6 @@
     function initForm() {
         $('#tabelaPedidosPendentesRetirada').load('./Views/Principal/TabelaPedidosPendentesRetirada.php');
         $('#tabelaPedidosPendentesBaixa').load('./Views/Principal/TabelaPedidosPendentesBaixa.php');
-        $('#tabelaTodosPedidos').load('./Views/Principal/tabelaTodosPedidos.php');
     }
 
     function setEvents() {}

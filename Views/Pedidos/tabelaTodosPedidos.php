@@ -20,7 +20,7 @@ $result = mysqli_query($conexao, $sql);
 
 <body>
 	<div class="table-responsive">
-		<table id="tabelaTodosPedidos" class="table table-hover table-condensed table-bordered text-center table-striped">
+		<table id="tblTodosPedidos" class="table table-hover table-condensed table-bordered text-center table-striped">
 			<thead>
 				<tr>
 					<td>CÓDIGO</td>
@@ -59,7 +59,7 @@ $result = mysqli_query($conexao, $sql);
 
 <script>
 	$(document).ready(function() {
-		$('#tabelaTodosPedidos').dataTable({
+		$('#tblTodosPedidos').dataTable({
 			language: {
 				lengthMenu: "_MENU_ REGISTROS POR PÁGINA",
 				zeroRecords: "NENHUM REGISTRO ENCONTRADO",

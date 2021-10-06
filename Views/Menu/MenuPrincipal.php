@@ -6,6 +6,7 @@
             <ul class="nav navbar-nav">
                <li><a id="acompanharPedidos" href="#">ACOMPANHAR PEDIDOS</a></li>
                <li><a id="cadastrarPedido" href="#">CADASTRAR PEDIDOS</a></li>
+               <li><a id="todosPedidos" href="#">TODOS OS PEDIDOS</a></li>
 
                 <li class="dropdown">
                     <a class="dropdown-toggle itensMenu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -41,6 +42,10 @@
 
         $("#acompanharPedidos").click(function(e) {
             $('#conteudo').load("./Views/Principal/AcompanharPedidos.php");
+        });
+
+        $("#todosPedidos").click(function(e) {
+            $('#conteudo').load("./Views/Pedidos/TodosPedidos.php");
         });
     }
 </script>

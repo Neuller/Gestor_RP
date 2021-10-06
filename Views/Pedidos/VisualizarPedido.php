@@ -43,7 +43,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6 col-sm-6 col-xs-6 itensFormulario">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
                             <div>
                                 <label>LOCALIZAÇÃO</label>
                                 <select class="form-control input-sm" id="caixaSelect" name="caixaSelect">
@@ -71,31 +71,31 @@
                         <div class="col-md-6 col-sm-6 col-xs-6">
                             <div>
                                 <label>DATA DE ENTRADA</label>
-                                <input type="text" readonly class="form-control input-sm text-uppercase" id="dataEntrada" name="dataEntrada">
+                                <input type="date" readonly class="form-control input-sm text-uppercase" id="dataEntrada" name="dataEntrada">
                             </div>
                         </div>
 
                         <div class="col-md-6 col-sm-6 col-xs-6">
                             <div>
                                 <label>DATA DE SAÍDA</label>
-                                <input type="text" readonly class="form-control input-sm text-uppercase" id="dataSaida" name="dataSaida">
+                                <input type="date" readonly class="form-control input-sm text-uppercase" id="dataSaida" name="dataSaida">
                             </div>
                         </div>
 
                         <div class="col-md-6 col-sm-6 col-xs-6">
                             <div>
                                 <label>DATA DE BAIXA NO APP</label>
-                                <input type="text" readonly class="form-control input-sm text-uppercase" id="dataBaixa" name="dataBaixa">
+                                <input type="date" readonly class="form-control input-sm text-uppercase" id="dataBaixa" name="dataBaixa">
                             </div>
                         </div>
 
-                        <div class="col-md-12 col-sm-12 col-xs-12 separador">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="text-left">
                                 <h4><strong>OBSERVAÇÕES </strong> <span class="glyphicon glyphicon-exclamation-sign ml-15"></span></h4>
                             </div>
                             <hr>
                         </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12 itensFormulario">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
                             <div>
                                 <textarea type="text" class="form-control input-sm text-uppercase" id="observacao" name="observacao" maxlength="1000" rows="3" style="resize: none"></textarea>
                             </div>
@@ -124,7 +124,7 @@
     });
 
     function initForm() {
-        id = "<?php echo @$id ?>";
+        var id = "<?php echo @$id ?>";
         obterDadosPedido(id);
         validarForm("formulario");
         camposObrigatorios(["nomeCliente", "caixaSelect"], true);
