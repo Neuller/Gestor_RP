@@ -36,7 +36,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                ENVIE SUA DÚVIDA OU RELATE UM PROBLEMA.
+                ENVIE SUA DÚVIDA, SUGESTÃO OU RELATE UM PROBLEMA.
                 <form id="formReport">
                     <div>
                         <textarea type="text" class="form-control input-sm text-uppercase" id="report" name="report" maxlength="1000" rows="3" style="resize: none"></textarea>
