@@ -176,12 +176,18 @@
                 $("#taxaComissao").val(dado["taxa_comissao"]);
                 $("#dataBaixa").val(dado["data_saida_baixa"]);
 
-                // if (dado["status"] != "AGUARDANDO RETIRADA") {
-                //     $("#caixaSelect").val(dado["id_caixa"]);
-                //     bloquearCampos(["caixaSelect"], true);
-                // }
+                verificaStatus(dado["status"]);
             }
         });
+    }
+
+    function verificaStatus(status) {
+        console.log(status);
+        if (status != "AGUARDANDO RETIRADA") {
+            bloquearCampos(["caixaSelect", "nomeCliente", "observacao", "taxaComissao"], true);
+            $("#btnSalvar").hide();
+            $("#btnCancelar").hide();
+        }
     }
 
     function voltar() {
