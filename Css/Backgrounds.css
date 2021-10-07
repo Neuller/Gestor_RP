@@ -1,0 +1,19 @@
+.bgPrincipal {
+	background: linear-gradient(to right, #010b26, #ffffff);
+}
+
+.bgSecundario {
+	background: linear-gradient(to right, #010b26, #ffffff);
+}
+
+.bgBlack {
+	background-color: #000;
+}
+
+.bgWhite {
+	background-color: #FFF;
+}
+
+.bgGray {
+	background-color: #e6e6e6;
+}

@@ -59,11 +59,11 @@
     function initForm() {
         validarForm("formularioCadastro");
         camposObrigatorios(["descricao"], true);
-        $('#tabelaCaixas').load("./Views/Estoque/TabelaCaixas.php");
+        $("#tabelaCaixas").load("./Views/Estoque/TabelaCaixas.php");
     }
 
     function setEvents() {
-        $('#btnCadastrar').click(function() {
+        $("#btnCadastrar").click(function() {
             var validator = $("#formularioCadastro").validate();
             validator.form();
             var checkValidator = validator.checkForm();
@@ -84,7 +84,7 @@
                     if (r > 0) {
                         console.log(r);
                         $("#formularioCadastro")[0].reset();
-                        $('#tabelaCaixas').load("./Views/Estoque/TabelaCaixas.php");
+                        $("#tabelaCaixas").load("./Views/Estoque/TabelaCaixas.php");
                         alertify.success("CADASTRO REALIZADO");
                     } else {
                         alertify.error("NÃO FOI POSSÍVEL CADASTRAR");
@@ -95,6 +95,6 @@
     }
 
     function visualizar(id) {
-        $('#conteudo').load("./Views/Estoque/VisualizarCaixa.php?id=" + id);
+        $("#conteudo").load("./Views/Estoque/VisualizarCaixa.php?id=" + id);
     }
 </script>

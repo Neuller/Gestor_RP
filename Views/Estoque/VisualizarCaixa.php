@@ -88,7 +88,7 @@
         $("#btnInativar").click(function() {
             dados = $("#formulario").serialize();
 
-            alertify.confirm('ATENÇÃO', 'CONFIRMAR INATIVAÇÃO DO REGISTRO?', function() {
+            alertify.confirm("ATENÇÃO", "CONFIRMAR INATIVAÇÃO DO REGISTRO?", function() {
                 alertify.confirm().close();
                 $.ajax({
                     type: "POST",

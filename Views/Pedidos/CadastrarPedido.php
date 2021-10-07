@@ -71,7 +71,6 @@
                             </div>
                         </div>
 
-                        <!-- BOTÕES -->
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div>
                                 <span class="btn btn-primary btn-lg" id="btnCadastrar" title="CADASTRAR">CADASTRAR</span>
