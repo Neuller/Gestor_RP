@@ -128,6 +128,7 @@
         obterDadosPedido(id);
         validarForm("formulario");
         camposObrigatorios(["nomeCliente", "caixaSelect"], true);
+        $("#caixaSelect").select2();
     }
 
     function setEvents() {
