@@ -10,8 +10,8 @@
 
 <body>
     <div class="container">
-        <div>
-            <div class="text-center">
+        <div class="cabecalho bgPrincipal">
+            <div class="tituloForm">
                 <h3><strong>CADASTRAR PEDIDO</strong></h3>
             </div>
         </div>

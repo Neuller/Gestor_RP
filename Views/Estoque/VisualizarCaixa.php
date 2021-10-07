@@ -11,8 +11,8 @@
 
 <body>
     <div class="container">
-        <div>
-            <div class="text-center">
+        <div class="cabecalho bgPrincipal">
+            <div class="tituloForm">
                 <h3><strong>VISUALIZAR CAIXA</strong></h3>
             </div>
         </div>

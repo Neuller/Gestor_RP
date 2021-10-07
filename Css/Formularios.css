@@ -1,33 +1,18 @@
-.formLogin {
-    margin-top: 25%;
-}
-
 .cabecalho {
-    margin-bottom: 50px;
+    margin-top: 50px;
+    margin-bottom: 25px;
 }
 
-.tituloFormulario {
-    margin-top: 25px;
-}
-
-.itensFormulario {
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-
-.avisoDanger {
-    background-color: red;
-    text-align: center;
+.tituloForm {
+    padding: 1%;
+    font-family: 'Segoe UI', Arial;
+    font-style: normal;
     color: white;
-    border-radius: 05px;
-    padding: 10px;
+    font-weight: bolder;
+    text-align: center;
 }
 
-.hrBlack {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #000000;
-    margin: 1em 0;
-    padding: 0;
+.itensForm {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

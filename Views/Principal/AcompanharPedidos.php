@@ -11,8 +11,8 @@
 <body>
     <div class="container">
         <div>
-            <div>
-                <div class="text-center">
+            <div class="cabecalho bgPrincipal">
+                <div class="tituloForm">
                     <h3><strong>PEDIDOS AGUARDANDO RETIRADA DO CLIENTE</strong></h3>
                 </div>
             </div>
@@ -21,8 +21,8 @@
         </div>
 
         <div>
-            <div>
-                <div class="text-center">
+            <div class="cabecalho bgPrincipal">
+                <div class="tituloForm">
                     <h3><strong>PEDIDOS AGUARDANDO BAIXA NO APLICATIVO</strong></h3>
                 </div>
             </div>

@@ -4,15 +4,15 @@
 <head>
     <?php require_once "../../Classes/Conexao.php";
     $c = new conectar();
-    $conexao = $c -> conexao();
+    $conexao = $c->conexao();
     ?>
 </head>
 
 <body>
     <div class="container">
         <div>
-            <div>
-                <div class="text-center">
+            <div class="cabecalho bgPrincipal">
+                <div class="tituloForm">
                     <h3><strong>TODOS OS PEDIDOS</strong></h3>
                 </div>
             </div>

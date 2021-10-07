@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-</head>
-
 <body>
     <div class="container">
-        <div>
-            <div class="text-center">
+        <div class="cabecalho bgPrincipal">
+            <div class="tituloForm">
                 <h3><strong>CADASTRAR CAIXA</strong></h3>
             </div>
         </div>
-        <div class="divFormulario">
-            <div class="mx-auto">
-                <form id="formularioCadastro">
-                    <div>
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div>
-                                <label>DESCRIÇÃO</label>
-                                <input type="text" class="form-control input-sm text-uppercase" id="descricao" name="descricao">
-                            </div>
-                        </div>
 
-                        <!-- BOTÕES -->
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div>
-                                <span class="btn btn-primary btn-lg" id="btnCadastrar" title="CADASTRAR">CADASTRAR</span>
-                            </div>
+        <div class="mx-auto">
+            <form id="formularioCadastro">
+                <div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div>
+                            <label>DESCRIÇÃO</label>
+                            <input type="text" class="form-control input-sm text-uppercase" id="descricao" name="descricao">
                         </div>
                     </div>
-                </form>
-            </div>
-        </div>
 
-        <div>
-            <div class="text-center">
+                    <!-- BOTÕES -->
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div>
+                            <span class="btn btn-primary btn-lg" id="btnCadastrar" title="CADASTRAR">CADASTRAR</span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="cabecalho bgPrincipal">
+            <div class="tituloForm">
                 <h3><strong>CAIXAS CADASTRADAS</strong></h3>
             </div>
             <hr>
         </div>
-        <div class="row">
-            <div class="col-sm-12" align="center">
-                <div id="tabelaCaixas"></div>
+
+        <div>
+            <div class="row">
+                <div class="col-sm-12" align="center">
+                    <div id="tabelaCaixas"></div>
+                </div>
             </div>
         </div>
-
     </div>
 </body>
 
