@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 06-Out-2021 às 20:30
+-- Tempo de geração: 07-Out-2021 às 14:41
 -- Versão do servidor: 10.4.19-MariaDB
 -- versão do PHP: 7.3.28
 
@@ -40,7 +40,8 @@ CREATE TABLE `erros` (
 
 CREATE TABLE `estoque_caixas` (
   `id_caixa` int(10) NOT NULL,
-  `descricao` varchar(500) DEFAULT NULL
+  `descricao` varchar(500) DEFAULT NULL,
+  `status` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
