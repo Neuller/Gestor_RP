@@ -31,6 +31,7 @@
 
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div>
+                                <span class="btn btn-danger btn-lg" id="btnInativar" title="INATIVAR">INATIVAR</span>
                                 <span class="btn btn-warning btn-lg" id="btnSalvar" title="SALVAR">SALVAR</span>
                                 <span class="btn btn-danger btn-lg" id="btnVoltar" title="VOLTAR" onclick="voltar()">VOLTAR</span>
                             </div>
@@ -82,6 +83,27 @@
                     }
                 }
             });
+        });
+
+        $("#btnInativar").click(function() {
+            dados = $("#formulario").serialize();
+
+            alertify.confirm('ATENÇÃO', 'CONFIRMAR INATIVAÇÃO DO REGISTRO?', function() {
+                alertify.confirm().close();
+                $.ajax({
+                    type: "POST",
+                    data: dados,
+                    url: "./Procedimentos/Estoque/InativarCaixa.php",
+                    success: function(r) {
+                        if (r > 0) {
+                            alertify.success("REGISTRO INATIVADO");
+                            $("#conteudo").load("./Views/Estoque/Caixas.php");
+                        } else {
+                            alertify.error("NÃO FOI POSSÍVEL INATIVAR REGISTRO");
+                        }
+                    }
+                });
+            }, function() {});
         });
     }
 

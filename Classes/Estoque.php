@@ -4,8 +4,8 @@ class estoque{
         $c = new conectar();
         $conexao = $c -> conexao();
 
-        $sql = "INSERT into estoque_caixas (descricao) 
-        VALUES ('$dados[0]')";
+        $sql = "INSERT into estoque_caixas (descricao, status) 
+        VALUES ('$dados[0]', 'ATIVO')";
         
         return mysqli_query($conexao, $sql);
     }
@@ -15,6 +15,16 @@ class estoque{
         $conexao = $c -> conexao();
 
         $sql = "UPDATE estoque_caixas SET descricao = '$dados[1]'
+        WHERE id_caixa = '$dados[0]'";
+        
+        return mysqli_query($conexao, $sql);
+    }
+
+    public function InativarCaixa($dados) {
+        $c = new conectar();
+        $conexao = $c -> conexao();
+
+        $sql = "UPDATE estoque_caixas SET status = 'INATIVO'
         WHERE id_caixa = '$dados[0]'";
         
         return mysqli_query($conexao, $sql);
