@@ -27,6 +27,13 @@
                             </div>
                         </div>
 
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div>
+                                <label>NOME DO CLIENTE</label>
+                                <input type="text" class="form-control input-sm text-uppercase" id="nomeCliente" name="nomeCliente">
+                            </div>
+                        </div>
+
                         <div class="col-md-6 col-sm-6 col-xs-6">
                             <div>
                                 <label>LOCALIZAÇÃO</label>
@@ -44,14 +51,15 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
                             <div>
-                                <label>NOME DO CLIENTE</label>
-                                <input type="text" class="form-control input-sm text-uppercase" id="nomeCliente" name="nomeCliente">
+                                <label>DATA DE ENTRADA</label>
+                                <input type="date" class="form-control text-uppercase input-sm" id="dataEntrada" name="dataEntrada">
                             </div>
                         </div>
 
-                        <div class="col-md-12 col-sm-12 col-xs-12 separador">
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="text-left">
                                 <h4><strong>OBSERVAÇÕES </strong> <span class="glyphicon glyphicon-exclamation-sign ml-15"></span></h4>
                             </div>
@@ -86,11 +94,12 @@
 
     function initForm() {
         validarForm("formulario");
-        camposObrigatorios(["codigo", "nomeCliente", "caixaSelect"], true);
+        camposObrigatorios(["codigo", "nomeCliente", "caixaSelect", "dataEntrada"], true);
+        $("#caixaSelect").select2();
     }
 
     function setEvents() {
-        $('#btnCadastrar').click(function() {
+        $("#btnCadastrar").click(function() {
             var validator = $("#formulario").validate();
             validator.form();
             var checkValidator = validator.checkForm();
@@ -109,12 +118,22 @@
                 success: function(r) {
                     if (r > 0) {
                         $("#formulario")[0].reset();
+                        $("#caixaSelect").val("").change();
                         alertify.success("CADASTRO REALIZADO");
                     } else {
                         alertify.error("NÃO FOI POSSÍVEL CADASTRAR");
                     }
                 }
             });
+        });
+
+        $("#dataEntrada").change(function() {
+            var dataEntrada = $("#dataEntrada").val();
+            var dataAtual = moment().format('YYYY-MM-DD')
+            if (dataEntrada > dataAtual) {
+                alertify.alert("ATENÇÃO", "DATA DE ENTRADA NÃO PODE SER MAIOR QUE A DATA ATUAL.");
+                $("#dataEntrada").val("");
+            }
         });
     }
 </script>

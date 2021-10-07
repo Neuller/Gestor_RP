@@ -6,7 +6,7 @@ class pedidos{
         $data = date('Y-m-d');
 
 		$sql = "INSERT INTO estoque_pedidos (codigo, nome_cliente, id_caixa, observacoes, data_entrada, status) 
-		VALUES ('$dados[0]', '$dados[1]', '$dados[2]', '$dados[3]', '$data', 'AGUARDANDO RETIRADA')";
+		VALUES ('$dados[0]', '$dados[1]', '$dados[2]', '$dados[3]', '$dados[4]', 'AGUARDANDO RETIRADA')";
         
         return mysqli_query($conexao, $sql);
     }
