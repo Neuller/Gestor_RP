@@ -4,7 +4,7 @@
 <head>
     <?php require_once "../../Classes/Conexao.php";
     $c = new conectar();
-    $conexao = $c -> conexao();
+    $conexao = $c->conexao();
     ?>
 </head>
 
@@ -19,7 +19,6 @@
 
             <div class="row" id="tabelaPedidosPendentesRetirada"></div>
         </div>
-
         <div>
             <div class="cabecalho bgPrincipal">
                 <div class="tituloForm">

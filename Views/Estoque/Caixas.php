@@ -35,12 +35,9 @@
             </div>
             <hr>
         </div>
-
-        <div>
-            <div class="row">
-                <div class="col-sm-12" align="center">
-                    <div id="tabelaCaixas"></div>
-                </div>
+        <div class="row">
+            <div class="col-sm-12" align="center">
+                <div id="tabelaCaixas"></div>
             </div>
         </div>
     </div>
