@@ -9,7 +9,7 @@
                 <li><a id="todosPedidos" href="#">TODOS OS PEDIDOS</a></li>
 
                 <li class="dropdown">
-                    <a class="dropdown-toggle itensMenu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         ESTOQUE
                     </a>
                     <ul class="dropdown-menu">
@@ -35,7 +35,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body itensForm">
                 ENVIE SUA DÚVIDA, SUGESTÃO OU RELATE UM PROBLEMA.
                 <form id="formReport">
                     <div>
