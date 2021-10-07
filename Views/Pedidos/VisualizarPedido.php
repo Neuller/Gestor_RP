@@ -22,28 +22,28 @@
                     <div>
                         <input type="text" hidden="" id="id" name="id">
 
-                        <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="col-md-6 col-sm-6 col-xs-6 itensForm">
                             <div>
                                 <label>CÓDIGO</label>
                                 <input type="text" readonly class="form-control input-sm text-uppercase" id="codigo" name="codigo">
                             </div>
                         </div>
 
-                        <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="col-md-6 col-sm-6 col-xs-6 itensForm">
                             <div>
                                 <label>STATUS</label>
                                 <input type="text" readonly class="form-control input-sm text-uppercase" id="status" name="status">
                             </div>
                         </div>
 
-                        <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-md-12 col-sm-12 col-xs-12 itensForm">
                             <div>
                                 <label>NOME DO CLIENTE</label>
                                 <input type="text" class="form-control input-sm text-uppercase" id="nomeCliente" name="nomeCliente">
                             </div>
                         </div>
 
-                        <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="col-md-6 col-sm-6 col-xs-6 itensForm">
                             <div>
                                 <label>LOCALIZAÇÃO</label>
                                 <select class="form-control input-sm" id="caixaSelect" name="caixaSelect">
@@ -60,7 +60,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="col-md-6 col-sm-6 col-xs-6 itensForm">
                             <div>
                                 <label>TAXA DE COMISSÃO</label>
                                 <input type="number" class="form-control input-sm text-uppercase" id="taxaComissao" name="taxaComissao">
@@ -68,28 +68,28 @@
                         </div>
 
 
-                        <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="col-md-6 col-sm-6 col-xs-6 itensForm">
                             <div>
                                 <label>DATA DE ENTRADA</label>
                                 <input type="date" readonly class="form-control input-sm text-uppercase" id="dataEntrada" name="dataEntrada">
                             </div>
                         </div>
 
-                        <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="col-md-6 col-sm-6 col-xs-6 itensForm">
                             <div>
                                 <label>DATA DE SAÍDA</label>
                                 <input type="date" readonly class="form-control input-sm text-uppercase" id="dataSaida" name="dataSaida">
                             </div>
                         </div>
 
-                        <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="col-md-6 col-sm-6 col-xs-6 itensForm">
                             <div>
                                 <label>DATA DE BAIXA NO APP</label>
                                 <input type="date" readonly class="form-control input-sm text-uppercase" id="dataBaixa" name="dataBaixa">
                             </div>
                         </div>
 
-                        <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-md-12 col-sm-12 col-xs-12 itensForm">
                             <div class="text-left">
                                 <h4><strong>OBSERVAÇÕES </strong> <span class="glyphicon glyphicon-exclamation-sign ml-15"></span></h4>
                             </div>
@@ -103,9 +103,9 @@
 
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div>
-                                <span class="btn btn-danger btn-lg" id="btnCancelar" title="CANCELAR PEDIDO" onclick="cancelarPedido()">CANCELAR PEDIDO</span>
-                                <span class="btn btn-warning btn-lg" id="btnSalvar" title="SALVAR">SALVAR</span>
-                                <span class="btn btn-danger btn-lg" id="btnVoltar" title="VOLTAR" onclick="voltar()">VOLTAR</span>
+                                <span class="btn btn-danger btn-lg btnLayout" id="btnCancelar" title="CANCELAR PEDIDO" onclick="cancelarPedido()">CANCELAR PEDIDO</span>
+                                <span class="btn btn-warning btn-lg btnLayout" id="btnSalvar" title="SALVAR">SALVAR</span>
+                                <span class="btn btn-danger btn-lg btnLayout" id="btnVoltar" title="VOLTAR" onclick="voltar()">VOLTAR</span>
                             </div>
                         </div>
                     </div>

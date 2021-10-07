@@ -12,17 +12,15 @@
         <div class="mx-auto">
             <form id="formularioCadastro">
                 <div>
-                    <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-md-12 col-sm-12 col-xs-12 itensForm">
                         <div>
                             <label>DESCRIÇÃO</label>
                             <input type="text" class="form-control input-sm text-uppercase" id="descricao" name="descricao">
                         </div>
                     </div>
-
-                    <!-- BOTÕES -->
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div>
-                            <span class="btn btn-primary btn-lg" id="btnCadastrar" title="CADASTRAR">CADASTRAR</span>
+                            <span class="btn btn-primary btn-lg btnLayout" id="btnCadastrar" title="CADASTRAR">CADASTRAR</span>
                         </div>
                     </div>
                 </div>

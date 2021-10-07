@@ -39,7 +39,7 @@ $result = mysqli_query($conexao, $sql);
 						<td>' . $mostrar[1] . '</td>
 						<td>' . $mostrar[2] . '</td>
 						<td>' . $mostrar[7] . '</td>	
-                        <td>' . '<span class="btn btn-success btn-lg" data-toggle="modal" data-target="#baixaPedido" title="CONFIRMAR BAIXA" onclick="baixaPedido('.$mostrar[0].')">
+                        <td>' . '<span class="btn btn-success btn-md" data-toggle="modal" data-target="#baixaPedido" title="CONFIRMAR BAIXA" onclick="baixaPedido('.$mostrar[0].')">
 						<span class="glyphicon glyphicon-ok-sign"></span>
 						</span>' . '</td>					
 						</tr>

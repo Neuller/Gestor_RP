@@ -22,7 +22,7 @@
                     <div>
                         <input type="text" hidden="" id="id" name="id">
 
-                        <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-md-12 col-sm-12 col-xs-12 itensForm">
                             <div>
                                 <label>DESCRIÇÃO</label>
                                 <input type="text" class="form-control input-sm text-uppercase" id="descricao" name="descricao">
@@ -31,9 +31,9 @@
 
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div>
-                                <span class="btn btn-danger btn-lg" id="btnInativar" title="INATIVAR">INATIVAR</span>
-                                <span class="btn btn-warning btn-lg" id="btnSalvar" title="SALVAR">SALVAR</span>
-                                <span class="btn btn-danger btn-lg" id="btnVoltar" title="VOLTAR" onclick="voltar()">VOLTAR</span>
+                                <span class="btn btn-danger btn-lg btnLayout" id="btnInativar" title="INATIVAR">INATIVAR</span>
+                                <span class="btn btn-warning btn-lg btnLayout" id="btnSalvar" title="SALVAR">SALVAR</span>
+                                <span class="btn btn-danger btn-lg btnLayout" id="btnVoltar" title="VOLTAR" onclick="voltar()">VOLTAR</span>
                             </div>
                         </div>
                     </div>

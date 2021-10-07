@@ -43,7 +43,7 @@ $result = mysqli_query($conexao, $sql);
 						<td>' . $mostrar[1] . '</td>
 						<td>' . $mostrar[2] . '</td>
 						<td>' . $data . '</td>
-						<td>' . '<span class="btn btn-primary btn-lg" data-toggle="modal" data-target="#visualizarPedido" title="VISUALIZAR" onclick="visualizarPedido(' . $mostrar[0] . ')">
+						<td>' . '<span class="btn btn-primary btn-md" data-toggle="modal" data-target="#visualizarPedido" title="VISUALIZAR" onclick="visualizarPedido(' . $mostrar[0] . ')">
 						<span class="glyphicon glyphicon-search"></span>
 						</span>' . '</td>				
 						</tr>

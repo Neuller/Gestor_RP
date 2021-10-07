@@ -15,26 +15,25 @@
                 <h3><strong>CADASTRAR PEDIDO</strong></h3>
             </div>
         </div>
-        <!-- FORMULÁRIO -->
-        <div class="divFormulario">
+        <div>
             <div class="mx-auto">
                 <form id="formulario">
                     <div>
-                        <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="col-md-6 col-sm-6 col-xs-6 itensForm">
                             <div>
                                 <label>CÓDIGO</label>
                                 <input type="number" class="form-control input-sm text-uppercase" id="codigo" name="codigo">
                             </div>
                         </div>
 
-                        <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-md-12 col-sm-12 col-xs-12 itensForm">
                             <div>
                                 <label>NOME DO CLIENTE</label>
                                 <input type="text" class="form-control input-sm text-uppercase" id="nomeCliente" name="nomeCliente">
                             </div>
                         </div>
 
-                        <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="col-md-6 col-sm-6 col-xs-6 itensForm">
                             <div>
                                 <label>LOCALIZAÇÃO</label>
                                 <select class="form-control input-sm" id="caixaSelect" name="caixaSelect">
@@ -51,7 +50,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="col-md-6 col-sm-6 col-xs-6 itensForm">
                             <div>
                                 <label>DATA DE ENTRADA</label>
                                 <input type="date" class="form-control text-uppercase input-sm" id="dataEntrada" name="dataEntrada">
@@ -59,7 +58,7 @@
                         </div>
 
 
-                        <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-md-12 col-sm-12 col-xs-12 itensForm">
                             <div class="text-left">
                                 <h4><strong>OBSERVAÇÕES </strong> <span class="glyphicon glyphicon-exclamation-sign ml-15"></span></h4>
                             </div>
@@ -73,7 +72,7 @@
 
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div>
-                                <span class="btn btn-primary btn-lg" id="btnCadastrar" title="CADASTRAR">CADASTRAR</span>
+                                <span class="btn btn-primary btn-lg btnLayout" id="btnCadastrar" title="CADASTRAR">CADASTRAR</span>
                             </div>
                         </div>
                     </div>
