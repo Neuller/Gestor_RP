@@ -20,7 +20,7 @@ $result = mysqli_query($conexao, $sql);
 <html>
 	<body>
 		<div class="table-responsive">
-			<table id="tabela" class="table table-hover table-condensed table-bordered text-center table-striped">
+			<table id="tblCaixas" class="table table-hover table-condensed table-bordered text-center table-striped">
 				<thead>
 					<tr>
 						<td>DESCRIÇÃO</td>
@@ -47,3 +47,24 @@ $result = mysqli_query($conexao, $sql);
 		</div>
 	</body>
 </html>
+
+<script>
+	$(document).ready(function() {
+		$("#tblCaixas").dataTable({
+			language: {
+				lengthMenu: "_MENU_ REGISTROS POR PÁGINA",
+				zeroRecords: "NENHUM REGISTRO ENCONTRADO",
+				info: "PÁGINA _PAGE_ DE _PAGES_",
+				infoEmpty: "Nenhum registro foi encontrado",
+				infoFiltered: "(FILTRADO DE _MAX_ REGISTROS NO TOTAL)",
+				search: "PESQUISAR: ",
+				paginate: {
+					"first": "PRIMEIRO",
+					"last": "ÚLTIMO",
+					"next": "PRÓXIMO",
+					"previous": "ANTERIOR"
+				}
+			}
+		});
+	});
+</script>
