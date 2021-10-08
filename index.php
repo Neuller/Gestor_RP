@@ -23,6 +23,7 @@
 
 	function initForm() {
 		$("#menuPrincipal").load("./Views/Menu/MenuPrincipal.php");
+		$("#conteudo").load("./Views/Principal/PaginaPrincipal.php");
 	}
 
 	function setEvents() {

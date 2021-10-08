@@ -4,7 +4,7 @@ require_once "../../Classes/Pedidos.php";
 require_once "../../Classes/Utilitarios.php";
 
 $c = new conectar();
-$conexao = $c->conexao();
+$conexao = $c -> conexao();
 $obj = new pedidos();
 $objUtils = new utilitarios();
 

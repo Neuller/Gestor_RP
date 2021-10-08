@@ -4,6 +4,7 @@
     <nav class="navbar-expand navbar-light">
         <div id="navbar">
             <ul class="nav navbar-nav">
+                <li><a id="paginaPrincipal" href="#">PÁGINA INICIAL</a></li>
                 <li><a id="acompanharPedidos" href="#">ACOMPANHAR PEDIDOS</a></li>
                 <li><a id="cadastrarPedido" href="#">CADASTRAR PEDIDOS</a></li>
                 <li><a id="todosPedidos" href="#">TODOS OS PEDIDOS</a></li>
@@ -65,6 +66,10 @@
     }
 
     function setEvents() {
+        $("#paginaPrincipal").click(function(e) {
+            $('#conteudo').load("./Views/Principal/PaginaPrincipal.php");
+        });
+
         $("#cadastrarPedido").click(function(e) {
             $('#conteudo').load("./Views/Pedidos/CadastrarPedido.php");
         });
