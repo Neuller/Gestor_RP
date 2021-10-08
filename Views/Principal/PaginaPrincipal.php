@@ -28,8 +28,8 @@ $rSQLPedidosCancelados = mysqli_query($conexao, $sqlPedidosCancelados);
             </div>
         </div>
 
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="card col-md-4 col-sm-4 col-xs-4" style="width: 18rem;">
+        <div class="linha">
+            <div class="card coluna-20">
                 <div class="card-body">
                     <h5 class="card-title">TOTAL DE PEDIDOS</h5>
                     <h6 class="card-subtitle mb-2 text-muted">GERAL</h6>
@@ -44,7 +44,7 @@ $rSQLPedidosCancelados = mysqli_query($conexao, $sqlPedidosCancelados);
                 </div>
             </div>
 
-            <div class="card col-md-4 col-sm-4 col-xs-4" style="width: 18rem;">
+            <div class="card coluna-20">
                 <div class="card-body">
                     <h5 class="card-title">TOTAL DE PEDIDOS</h5>
                     <h6 class="card-subtitle mb-2 text-muted">EM ESTOQUE</h6>
@@ -59,7 +59,7 @@ $rSQLPedidosCancelados = mysqli_query($conexao, $sqlPedidosCancelados);
                 </div>
             </div>
 
-            <div class="card col-md-4 col-sm-4 col-xs-4" style="width: 18rem;">
+            <div class="card coluna-20">
                 <div class="card-body">
                     <h5 class="card-title">TOTAL DE PEDIDOS</h5>
                     <h6 class="card-subtitle mb-2 text-muted">ENTREGUES</h6>
@@ -74,7 +74,7 @@ $rSQLPedidosCancelados = mysqli_query($conexao, $sqlPedidosCancelados);
                 </div>
             </div>
 
-            <div class="card col-md-4 col-sm-4 col-xs-4" style="width: 18rem;">
+            <div class="card coluna-20">
                 <div class="card-body">
                     <h5 class="card-title">TOTAL DE PEDIDOS</h5>
                     <h6 class="card-subtitle mb-2 text-muted">CANCELADOS</h6>
@@ -100,8 +100,7 @@ $rSQLPedidosCancelados = mysqli_query($conexao, $sqlPedidosCancelados);
         setEvents();
     });
 
-    function initForm() {
-    }
+    function initForm() {}
 
     function setEvents() {
 
