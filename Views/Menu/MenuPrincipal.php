@@ -17,6 +17,14 @@
                         <li><a id="estoqueCaixas" href="#">CAIXAS</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        CONFIGURAÇÕES
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a id="backup" href="#">BACKUP MANUAL</a></li>
+                    </ul>
+                </li>
             </ul>
             <form class="form-inline">
                 <button type="button" id="btnReport" class="btn btn-link btn-lg" title="REPORTAR PROBLEMA" data-toggle="modal" data-target="#modalReport">
@@ -67,26 +75,26 @@
 
     function setEvents() {
         $("#paginaPrincipal").click(function(e) {
-            $('#conteudo').load("./Views/Principal/PaginaPrincipal.php");
+            $("#conteudo").load("./Views/Principal/PaginaPrincipal.php");
         });
 
         $("#cadastrarPedido").click(function(e) {
-            $('#conteudo').load("./Views/Pedidos/CadastrarPedido.php");
+            $("#conteudo").load("./Views/Pedidos/CadastrarPedido.php");
         });
 
         $("#estoqueCaixas").click(function(e) {
-            $('#conteudo').load("./Views/Estoque/Caixas.php");
+            $("#conteudo").load("./Views/Estoque/Caixas.php");
         });
 
         $("#acompanharPedidos").click(function(e) {
-            $('#conteudo').load("./Views/Principal/AcompanharPedidos.php");
+            $("#conteudo").load("./Views/Principal/AcompanharPedidos.php");
         });
 
         $("#todosPedidos").click(function(e) {
-            $('#conteudo').load("./Views/Pedidos/TodosPedidos.php");
+            $("#conteudo").load("./Views/Pedidos/TodosPedidos.php");
         });
 
-        $('#btnEnviarReport').click(function() {
+        $("#btnEnviarReport").click(function() {
             var validator = $("#formReport").validate();
             validator.form();
             var checkValidator = validator.checkForm();
@@ -113,5 +121,18 @@
                 }
             });
         });
+
+        $("#backup").click(function() {
+            alertify.confirm("BACKUP MANUAL", "GOSTARIA DE REALIZAR UM BACKUP DA BASE ATUAL?", function() {
+                alertify.confirm().close();
+                $.ajax({
+                    url: "./Procedimentos/Configuracoes/BackupManual.php",
+                    success: function(r) {
+                        alertify.success("BACKUP REALIZADO COM SUCESSO");
+                    }
+                });
+            }, function() {});
+        });
+
     }
 </script>
