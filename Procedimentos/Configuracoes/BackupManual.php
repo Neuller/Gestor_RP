@@ -1,6 +1,6 @@
 <?php 
     $dir_path = "../../../../mysql/data/";
-    $dir_destino = "../../../../../Backup Gestor RP";
+    $dir_destino = "../../../../../Base de Dados - Gestor RP";
     $dir_copy = opendir($dir_path) ;
 
     if(!is_dir($dir_destino))
@@ -15,7 +15,7 @@
     }
 
     $dir_base_app = "../../../../mysql/data/gestor_rp";
-    $dir_destino_app = "../../../../../Backup Gestor RP/gestor_rp";
+    $dir_destino_app = "../../../../../Base de Dados - Gestor RP/gestor_rp";
     $dir_copy_app = opendir($dir_base_app) ;
 
     if(!is_dir($dir_destino_app))

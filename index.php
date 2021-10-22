@@ -29,4 +29,16 @@
 	function setEvents() {
 
 	}
+
+	function backupManual() {
+		alertify.confirm("BACKUP MANUAL", "GOSTARIA DE REALIZAR UM BACKUP DA BASE ATUAL?", function() {
+			alertify.confirm().close();
+			$.ajax({
+				url: "./Procedimentos/Configuracoes/BackupManual.php",
+				success: function(r) {
+					alertify.success("BACKUP REALIZADO COM SUCESSO");
+				}
+			});
+		}, function() {});
+	}
 </script>

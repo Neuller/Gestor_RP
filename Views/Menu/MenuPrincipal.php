@@ -22,7 +22,7 @@
                         CONFIGURAÇÕES
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a id="backup" href="#">BACKUP MANUAL</a></li>
+                        <li><a id="backup" href="#" onclick="backupManual()">BACKUP MANUAL</a></li>
                     </ul>
                 </li>
             </ul>
@@ -121,18 +121,5 @@
                 }
             });
         });
-
-        $("#backup").click(function() {
-            alertify.confirm("BACKUP MANUAL", "GOSTARIA DE REALIZAR UM BACKUP DA BASE ATUAL?", function() {
-                alertify.confirm().close();
-                $.ajax({
-                    url: "./Procedimentos/Configuracoes/BackupManual.php",
-                    success: function(r) {
-                        alertify.success("BACKUP REALIZADO COM SUCESSO");
-                    }
-                });
-            }, function() {});
-        });
-
     }
 </script>
