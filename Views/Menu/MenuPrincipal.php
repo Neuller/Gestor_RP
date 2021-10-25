@@ -14,7 +14,7 @@
                         ESTOQUE
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a id="estoqueCaixas" href="#">CAIXAS</a></li>
+                        <li><a id="cadastrarLote" href="#">CADASTRAR LOTE</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -82,8 +82,8 @@
             $("#conteudo").load("./Views/Pedidos/CadastrarPedido.php");
         });
 
-        $("#estoqueCaixas").click(function(e) {
-            $("#conteudo").load("./Views/Estoque/Caixas.php");
+        $("#cadastrarLote").click(function(e) {
+            $("#conteudo").load("./Views/Estoque/Lote.php");
         });
 
         $("#acompanharPedidos").click(function(e) {

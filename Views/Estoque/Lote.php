@@ -5,7 +5,7 @@
     <div class="container">
         <div class="cabecalho bgPrincipal">
             <div class="tituloForm">
-                <h3><strong>CADASTRAR CAIXA</strong></h3>
+                <h3><strong>CADASTRAR LOTE</strong></h3>
             </div>
         </div>
 
@@ -31,13 +31,13 @@
     <div class="container">
         <div class="cabecalho bgPrincipal">
             <div class="tituloForm">
-                <h3><strong>CAIXAS CADASTRADAS</strong></h3>
+                <h3><strong>LOTES CADASTRADOS</strong></h3>
             </div>
             <hr>
         </div>
         <div class="row">
             <div class="col-sm-12" align="center">
-                <div id="tabelaCaixas"></div>
+                <div id="tabelaLote"></div>
             </div>
         </div>
     </div>
@@ -54,7 +54,7 @@
     function initForm() {
         validarForm("formularioCadastro");
         camposObrigatorios(["descricao"], true);
-        $("#tabelaCaixas").load("./Views/Estoque/TabelaCaixas.php");
+        $("#tabelaLote").load("./Views/Estoque/tabelaLote.php");
     }
 
     function setEvents() {
@@ -79,7 +79,7 @@
                     if (r > 0) {
                         console.log(r);
                         $("#formularioCadastro")[0].reset();
-                        $("#tabelaCaixas").load("./Views/Estoque/TabelaCaixas.php");
+                        $("#tabelaLote").load("./Views/Estoque/tabelaLote.php");
                         alertify.success("CADASTRO REALIZADO");
                     } else {
                         alertify.error("NÃO FOI POSSÍVEL CADASTRAR");
@@ -90,6 +90,6 @@
     }
 
     function visualizar(id) {
-        $("#conteudo").load("./Views/Estoque/VisualizarCaixa.php?id=" + id);
+        $("#conteudo").load("./Views/Estoque/VisualizarLote.php?id=" + id);
     }
 </script>

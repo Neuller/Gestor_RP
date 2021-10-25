@@ -13,7 +13,7 @@
     <div class="container">
         <div class="cabecalho bgPrincipal">
             <div class="tituloForm">
-                <h3><strong>VISUALIZAR CAIXA</strong></h3>
+                <h3><strong>VISUALIZAR LOTE</strong></h3>
             </div>
         </div>
         <div class="divFormulario">
@@ -74,7 +74,7 @@
             $.ajax({
                 type: "POST",
                 data: dados,
-                url: "./Procedimentos/Estoque/AtualizarCaixa.php",
+                url: "./Procedimentos/Estoque/AtualizarLote.php",
                 success: function(r) {
                     if (r > 0) {
                         alertify.success("REGISTRO ATUALIZADO");
@@ -93,11 +93,11 @@
                 $.ajax({
                     type: "POST",
                     data: dados,
-                    url: "./Procedimentos/Estoque/InativarCaixa.php",
+                    url: "./Procedimentos/Estoque/InativarLote.php",
                     success: function(r) {
                         if (r > 0) {
                             alertify.success("REGISTRO INATIVADO");
-                            $("#conteudo").load("./Views/Estoque/Caixas.php");
+                            $("#conteudo").load("./Views/Estoque/Lote.php");
                         } else {
                             alertify.error("NÃO FOI POSSÍVEL INATIVAR REGISTRO");
                         }
@@ -111,7 +111,7 @@
         $.ajax({
             type: "POST",
             data: "id=" + id,
-            url: "./Procedimentos/Estoque/ObterDadosCaixa.php",
+            url: "./Procedimentos/Estoque/ObterDadosLote.php",
             success: function(r) {
                 dado = jQuery.parseJSON(r);
                 $("#id").val(dado["id"]);
@@ -121,6 +121,6 @@
     }
 
     function voltar() {
-        $("#conteudo").load("./Views/Estoque/Caixas.php");
+        $("#conteudo").load("./Views/Estoque/Lote.php");
     }
 </script>

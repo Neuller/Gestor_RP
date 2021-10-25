@@ -47,7 +47,7 @@
                             <div>
                                 <label>LOCALIZAÇÃO</label>
                                 <select class="form-control input-sm" id="caixaSelect" name="caixaSelect">
-                                    <option value="">SELECIONE UMA CAIXA</option>
+                                    <option value="">SELECIONE UM LOTE</option>
                                     <?php
                                     $sql = "SELECT id_caixa, descricao FROM estoque_caixas ORDER BY id_caixa DESC";
                                     $result = mysqli_query($conexao, $sql);
@@ -169,14 +169,13 @@
                 $("#id").val(dado["id"]);
                 $("#codigo").val(dado["codigo"]);
                 $("#nomeCliente").val(dado["nome_cliente"]);
-                $("#caixaSelect").val(dado["id_caixa"]);
+                $("#caixaSelect").val(dado["id_caixa"]).change();
                 $("#observacao").val(dado["observacoes"]);
                 $("#dataEntrada").val(dado["data_entrada"]);
                 $("#dataSaida").val(dado["data_saida"]);
                 $("#status").val(dado["status"]);
                 $("#taxaComissao").val(dado["taxa_comissao"]);
                 $("#dataBaixa").val(dado["data_saida_baixa"]);
-
                 verificaStatus(dado["status"]);
             }
         });

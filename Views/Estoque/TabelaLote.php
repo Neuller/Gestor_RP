@@ -20,7 +20,7 @@ $result = mysqli_query($conexao, $sql);
 <html>
 	<body>
 		<div class="table-responsive">
-			<table id="tblCaixas" class="table table-hover table-condensed table-bordered text-center table-striped">
+			<table id="tblLote" class="table table-hover table-condensed table-bordered text-center table-striped">
 				<thead>
 					<tr>
 						<td>DESCRIÇÃO</td>
@@ -35,7 +35,7 @@ $result = mysqli_query($conexao, $sql);
 							'
 							<tr>
                                 <td>'.$mostrar[1].'</td>
-                                <td>'.'<span class="btn btn-primary btn-md" data-toggle="modal" title="VISUALIZAR" data-target="#visualizarCaixa" onclick="visualizar('.$mostrar[0].')"">
+                                <td>'.'<span class="btn btn-primary btn-md" data-toggle="modal" title="VISUALIZAR" data-target="#visualizarLote" onclick="visualizar('.$mostrar[0].')"">
                                 <span class="glyphicon glyphicon-search"></span>
                                 </span>'.'</td>									
 							</tr>
@@ -50,7 +50,7 @@ $result = mysqli_query($conexao, $sql);
 
 <script>
 	$(document).ready(function() {
-		$("#tblCaixas").dataTable({
+		$("#tblLote").dataTable({
 			language: {
 				lengthMenu: "_MENU_ REGISTROS POR PÁGINA",
 				zeroRecords: "NENHUM REGISTRO ENCONTRADO",
