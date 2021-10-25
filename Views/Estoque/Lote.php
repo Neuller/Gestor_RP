@@ -66,26 +66,37 @@
             if (checkValidator == false) {
                 alertify.error("PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS");
                 return false;
-            }
-
-            dados = $("#formularioCadastro").serialize();
-
-            $.ajax({
-                type: "POST",
-                data: dados,
-                url: "./Procedimentos/Estoque/CadastrarCaixa.php",
-                success: function(r) {
-                    console.log(r);
-                    if (r > 0) {
-                        console.log(r);
-                        $("#formularioCadastro")[0].reset();
-                        $("#tabelaLote").load("./Views/Estoque/tabelaLote.php");
-                        alertify.success("CADASTRO REALIZADO");
-                    } else {
-                        alertify.error("NÃO FOI POSSÍVEL CADASTRAR");
+            } else {
+                dados = $("#formularioCadastro").serialize();
+                $.ajax({
+                    type: "POST",
+                    data: dados,
+                    url: "./Procedimentos/Estoque/ConsultarCadastroLote.php",
+                    success: function(r) {
+                        retorno = parseInt(jQuery.parseJSON(r));
+                        if (retorno > 0) {
+                            alertify.error("LOTE COM DESCRIÇÃO JÁ CADASTRADO");
+                            $("#descricao").val("");
+                            return false;
+                        } else {
+                            $.ajax({
+                                type: "POST",
+                                data: dados,
+                                url: "./Procedimentos/Estoque/CadastrarLote.php",
+                                success: function(r) {
+                                    if (r > 0) {
+                                        $("#formularioCadastro")[0].reset();
+                                        $("#tabelaLote").load("./Views/Estoque/tabelaLote.php");
+                                        alertify.success("CADASTRO REALIZADO");
+                                    } else {
+                                        alertify.error("NÃO FOI POSSÍVEL CADASTRAR");
+                                    }
+                                }
+                            });
+                        }
                     }
-                }
-            });
+                });
+            }
         });
     }
 

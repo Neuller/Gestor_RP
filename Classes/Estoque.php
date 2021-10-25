@@ -47,5 +47,18 @@ class estoque{
 
 		return $dados;
     }
+
+    public function ConsultarCadastroLote($descricao) {
+        $c = new conectar();
+		$conexao = $c -> conexao();
+
+		$sql = "SELECT id_caixa
+		FROM estoque_caixas WHERE descricao = '$descricao'";
+
+        $result = mysqli_query($conexao, $sql);
+        $mostrar = mysqli_fetch_row($result);
+
+        return $mostrar[0];
+    }
 }
 ?>
