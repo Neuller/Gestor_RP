@@ -65,7 +65,7 @@
                     }
                 }
             });
-        }, function() {});
+        }, function() {}).set({labels:{ok:"SIM", cancel: "NÃO"}});
     }
 
     function baixaPedido(id) {
@@ -85,7 +85,7 @@
                     }
                 }
             });
-        }, function() {});
+        }, function() {}).set({labels:{ok:"SIM", cancel: "NÃO"}});
     }
 
     function visualizarPedido(id) {

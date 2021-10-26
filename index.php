@@ -42,6 +42,6 @@ clearstatcache();
 					alertify.success("BACKUP REALIZADO COM SUCESSO");
 				}
 			});
-		}, function() {});
+		}, function() {}).set({labels:{ok:"SIM", cancel: "NÃO"}});
 	}
 </script>
