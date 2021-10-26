@@ -7,6 +7,7 @@
                 <li><a id="paginaPrincipal" href="#">PÁGINA INICIAL</a></li>
                 <li><a id="acompanharPedidos" href="#">ACOMPANHAR PEDIDOS</a></li>
                 <li><a id="cadastrarPedido" href="#">CADASTRAR PEDIDOS</a></li>
+                <li><a id="vincularPedidos" href="#">VINCULAR PEDIDOS</a></li>
                 <li><a id="todosPedidos" href="#">TODOS OS PEDIDOS</a></li>
 
                 <li class="dropdown">
@@ -80,6 +81,10 @@
 
         $("#cadastrarPedido").click(function(e) {
             $("#conteudo").load("./Views/Pedidos/CadastrarPedido.php");
+        });
+
+        $("#vincularPedidos").click(function(e) {
+            $("#conteudo").load("./Views/Pedidos/VincularPedido.php");
         });
 
         $("#cadastrarLote").click(function(e) {
