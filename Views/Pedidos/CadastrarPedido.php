@@ -115,10 +115,11 @@
                 url: "./Procedimentos/Pedidos/CadastrarPedido.php",
                 success: function(r) {
                     if (r > 0) {
-                        $("#formulario")[0].reset();
-                        $("#caixaSelect").val("").change();
+                        $("#conteudo").load("./Views/Pedidos/CadastrarPedido.php");
                         alertify.success("CADASTRO REALIZADO");
                     } else {
+                        $("#formulario")[0].reset();
+                        $("#caixaSelect").val("").change();
                         alertify.error("NÃO FOI POSSÍVEL CADASTRAR");
                     }
                 }

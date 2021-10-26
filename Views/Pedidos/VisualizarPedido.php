@@ -46,17 +46,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-6 itensForm">
                             <div>
                                 <label>LOCALIZAÇÃO</label>
-                                <select class="form-control input-sm" id="caixaSelect" name="caixaSelect">
-                                    <option value="">SELECIONE UM LOTE</option>
-                                    <?php
-                                    $sql = "SELECT id_caixa, descricao FROM estoque_caixas WHERE status LIKE 'VAZIO' ORDER BY id_caixa DESC";
-                                    $result = mysqli_query($conexao, $sql);
-
-                                    while ($caixa = mysqli_fetch_row($result)) :
-                                    ?>
-                                        <option value="<?php echo $caixa[0] ?>"><?php echo $caixa[1] ?></option>
-                                    <?php endwhile; ?>
-                                </select>
+                                <input type="text" readonly class="form-control input-sm text-uppercase" id="lote" name="lote">
                             </div>
                         </div>
 
@@ -127,8 +117,7 @@
         var id = "<?php echo @$id ?>";
         obterDadosPedido(id);
         validarForm("formulario");
-        camposObrigatorios(["nomeCliente", "caixaSelect"], true);
-        $("#caixaSelect").select2();
+        camposObrigatorios(["nomeCliente"], true);
     }
 
     function setEvents() {
@@ -169,7 +158,14 @@
                 $("#id").val(dado["id"]);
                 $("#codigo").val(dado["codigo"]);
                 $("#nomeCliente").val(dado["nome_cliente"]);
-                $("#caixaSelect").val(dado["id_caixa"]).change();
+                $.ajax({
+                    type: "POST",
+                    data: "idLote=" + dado.id_caixa,
+                    url: './Procedimentos/Estoque/ObterDescLote.php',
+                }).then(function(data) {
+                    var lote = JSON.parse(data);
+                    $("#lote").val(lote);
+                });
                 $("#observacao").val(dado["observacoes"]);
                 $("#dataEntrada").val(dado["data_entrada"]);
                 $("#dataSaida").val(dado["data_saida"]);
@@ -184,7 +180,7 @@
     function verificaStatus(status) {
         console.log(status);
         if (status != "AGUARDANDO RETIRADA") {
-            bloquearCampos(["caixaSelect", "nomeCliente", "observacao", "taxaComissao"], true);
+            bloquearCampos(["nomeCliente", "observacao", "taxaComissao"], true);
             $("#btnSalvar").hide();
             $("#btnCancelar").hide();
         }

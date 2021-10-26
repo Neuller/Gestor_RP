@@ -80,7 +80,7 @@ class pedidos{
         $c = new conectar();
         $conexao = $c -> conexao();
 
-        $sql = "UPDATE estoque_pedidos SET nome_cliente = '$dados[1]', id_caixa = '$dados[2]', taxa_comissao = '$dados[3]', observacoes = '$dados[4]'
+        $sql = "UPDATE estoque_pedidos SET nome_cliente = '$dados[1]', taxa_comissao = '$dados[2]', observacoes = '$dados[3]'
         WHERE id_pedido  = '$dados[0]'";
         
         return mysqli_query($conexao, $sql);

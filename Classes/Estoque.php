@@ -61,5 +61,17 @@ class estoque{
 
         return $mostrar[0];
     }
+
+    public function DescLote($idLote) {
+        $c = new conectar();
+		$conexao = $c -> conexao();
+
+		$sql = "SELECT descricao FROM estoque_caixas WHERE id_caixa = '$idLote'";
+
+		$resultado = mysqli_query($conexao, $sql);
+		$mostrar = mysqli_fetch_row($resultado);
+
+		return $mostrar[0];
+    }
 }
 ?>

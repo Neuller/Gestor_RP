@@ -79,7 +79,7 @@
                     if (r > 0) {
                         $('#tabelaPedidosPendentesRetirada').load('./Views/Principal/tabelaPedidosPendentesRetirada.php');
                         $('#tabelaPedidosPendentesBaixa').load('./Views/Principal/TabelaPedidosPendentesBaixa.php');
-                        alertify.success("BAIXA NO PEDIDO REALIZADA");
+                        alertify.success("BAIXA DO PEDIDO REALIZADA");
                     } else {
                         alertify.error("ERRO AO REALIZAR BAIXA");
                     }
