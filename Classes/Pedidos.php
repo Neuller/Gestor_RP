@@ -3,23 +3,40 @@ class pedidos{
     public function CadastrarPedido($dados) {
         $c = new conectar();
         $conexao = $c -> conexao();
-        $data = date('Y-m-d');
 
 		$sql = "INSERT INTO estoque_pedidos (codigo, nome_cliente, id_caixa, observacoes, data_entrada, status) 
 		VALUES ('$dados[0]', '$dados[1]', '$dados[2]', '$dados[3]', '$dados[4]', 'AGUARDANDO RETIRADA')";
+
+        $sql_lote = "UPDATE estoque_caixas SET status = 'OCUPADO' WHERE id_caixa = '$dados[2]'";
+
+        mysqli_query($conexao, $sql_lote);
         
         return mysqli_query($conexao, $sql);
     }
 
-    public function RealizarEntrega($id) {
+    public function atualizarLote($id) {
+        $c = new conectar();
+        $conexao = $c -> conexao();
+
+        $sql = "UPDATE estoque_caixas SET status = 'OCUPADO'
+		WHERE id_caixa = '$id'";
+
+		echo mysqli_query($conexao, $sql);
+    }
+
+    public function RealizarEntrega($idPedido, $idCaixa) {
         $c = new conectar();
         $conexao = $c -> conexao();
         $data = date('Y-m-d');
 
         $sql = "UPDATE estoque_pedidos SET status = 'PENDENTE BAIXA NO APP', data_saida = '$data'
-		WHERE id_pedido = '$id'";
+		WHERE id_pedido = '$idPedido'";
 
-		echo mysqli_query($conexao, $sql);
+        $sql_lote = "UPDATE estoque_caixas SET status = 'VAZIO' WHERE id_caixa = '$idCaixa'";
+
+        mysqli_query($conexao, $sql_lote);
+
+		return mysqli_query($conexao, $sql);
     }
 
     public function RealizarBaixa($id) {

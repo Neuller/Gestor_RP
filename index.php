@@ -1,4 +1,7 @@
-<?php require_once "./Dependencias.php" ?>
+<?php 
+require_once "./Dependencias.php";
+clearstatcache();
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -31,7 +34,7 @@
 	}
 
 	function backupManual() {
-		alertify.confirm("BACKUP MANUAL", "GOSTARIA DE REALIZAR UM BACKUP DA BASE ATUAL?", function() {
+		alertify.confirm("BACKUP MANUAL", "GOSTARIA DE REALIZAR O BACKUP DA BASE ATUAL?", function() {
 			alertify.confirm().close();
 			$.ajax({
 				url: "./Procedimentos/Configuracoes/BackupManual.php",

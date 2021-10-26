@@ -39,7 +39,7 @@
                                 <select class="form-control input-sm" id="caixaSelect" name="caixaSelect">
                                     <option value="">SELECIONE UM LOTE</option>
                                     <?php
-                                    $sql = "SELECT id_caixa, descricao FROM estoque_caixas ORDER BY id_caixa DESC";
+                                    $sql = "SELECT id_caixa, descricao FROM estoque_caixas WHERE status LIKE 'VAZIO' ORDER BY id_caixa DESC";
                                     $result = mysqli_query($conexao, $sql);
 
                                     while ($caixa = mysqli_fetch_row($result)) :

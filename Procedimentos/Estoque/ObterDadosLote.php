@@ -6,5 +6,5 @@ require_once "../../Classes/Estoque.php";
 
 $obj = new estoque();
 
-echo json_encode($obj -> obterDadosCaixa($_POST['id']));
+echo json_encode($obj -> obterDadosLote($_POST['id']));
 ?>

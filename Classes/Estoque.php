@@ -1,11 +1,11 @@
 <?php 
 class estoque{
-    public function CadastrarCaixa($dados) {
+    public function CadastrarLote($dados) {
         $c = new conectar();
         $conexao = $c -> conexao();
 
         $sql = "INSERT into estoque_caixas (descricao, status) 
-        VALUES ('$dados[0]', 'ATIVO')";
+        VALUES ('$dados[0]', 'VAZIO')";
         
         return mysqli_query($conexao, $sql);
     }
@@ -30,11 +30,11 @@ class estoque{
         return mysqli_query($conexao, $sql);
     }
 
-    public function obterDadosCaixa($id) {
+    public function obterDadosLote($id) {
         $c = new conectar();
 		$conexao = $c -> conexao();
 
-		$sql = "SELECT id_caixa, descricao
+		$sql = "SELECT id_caixa, descricao, status
 		FROM estoque_caixas WHERE id_caixa = '$id'";
 
 		$result = mysqli_query($conexao, $sql);
@@ -42,7 +42,8 @@ class estoque{
 
 		$dados = array(
 			'id' => $mostrar[0],
-			'descricao' => $mostrar[1]
+			'descricao' => $mostrar[1],
+			'status' => $mostrar[2]
 		);
 
 		return $dados;

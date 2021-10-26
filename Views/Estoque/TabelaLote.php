@@ -10,7 +10,7 @@ $dataAtual = date('m');
 
 $sql = "SELECT id_caixa , descricao
 FROM estoque_caixas 
-WHERE status LIKE 'ATIVO'
+WHERE status NOT LIKE 'INATIVO'
 ORDER BY id_caixa DESC";
 
 $result = mysqli_query($conexao, $sql);

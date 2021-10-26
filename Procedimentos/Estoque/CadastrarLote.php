@@ -9,5 +9,5 @@ $dados = array(
 $_POST['descricao'] = strtoupper($_POST['descricao'])
 );
 
-echo $obj -> CadastrarCaixa($dados);
+echo $obj -> CadastrarLote($dados);
 ?>

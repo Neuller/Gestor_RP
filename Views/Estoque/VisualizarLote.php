@@ -29,6 +29,13 @@
                             </div>
                         </div>
 
+                        <div class="col-md-6 col-sm-6 col-xs-6 itensForm">
+                            <div>
+                                <label>STATUS</label>
+                                <input type="text" readonly class="form-control input-sm text-uppercase" id="status" name="status">
+                            </div>
+                        </div>
+
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div>
                                 <span class="btn btn-danger btn-lg btnLayout" id="btnInativar" title="INATIVAR">INATIVAR</span>
@@ -116,6 +123,7 @@
                 dado = jQuery.parseJSON(r);
                 $("#id").val(dado["id"]);
                 $("#descricao").val(dado["descricao"]);
+                $("#status").val(dado["status"]);
             }
         });
     }

@@ -46,14 +46,16 @@
 
     function setEvents() {}
 
-    function entregaRapida(id) {
+    function entregaRapida(idPedido, idCaixa) {
+        debugger;
         alertify.confirm('ATENÇÃO', 'CONFIRMAR ENTREGA RÁPIDA DO PEDIDO?', function() {
             alertify.confirm().close();
             $.ajax({
                 type: "POST",
-                data: "idPedido=" + id,
+                data: {idPedido : idPedido, idCaixa : idCaixa},
                 url: "./Procedimentos/Pedidos/RealizarEntrega.php",
                 success: function(r) {
+                    debugger;
                     if (r > 0) {
                         $('#tabelaPedidosPendentesRetirada').load('./Views/Principal/tabelaPedidosPendentesRetirada.php');
                         $('#tabelaPedidosPendentesBaixa').load('./Views/Principal/TabelaPedidosPendentesBaixa.php');
