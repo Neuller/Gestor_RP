@@ -9,7 +9,7 @@
 <title>GESTOR RP</title>
 
 <!-- ICONE -->
-<!-- <link rel="icon" href="Img/Icone.png"> -->
+<link rel="icon" href="Img/Icone.ico">
 
 <!-- JS -->
 <script type="text/javascript" src="./Lib/jquery-3.6.0.min.js"></script>
