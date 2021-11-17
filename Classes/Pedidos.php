@@ -32,11 +32,36 @@ class pedidos{
         $sql = "UPDATE estoque_pedidos SET status = 'PENDENTE BAIXA NO APP', data_saida = '$data'
 		WHERE id_pedido = '$idPedido'";
 
-        $sql_lote = "UPDATE estoque_caixas SET status = 'VAZIO' WHERE id_caixa = '$idCaixa'";
-
-        mysqli_query($conexao, $sql_lote);
+        if(pedidos::verificarVinculo($idPedido, $idCaixa) == false){
+            pedidos::atualizarLotePVazio($idCaixa);
+        }
 
 		return mysqli_query($conexao, $sql);
+    }
+
+    public function atualizarLotePVazio($idCaixa){
+        $c = new conectar();
+        $conexao = $c -> conexao();
+
+        $sql_lote = "UPDATE estoque_caixas SET status = 'VAZIO' WHERE id_caixa = '$idCaixa'";
+
+        return mysqli_query($conexao, $sql_lote);
+    }
+
+    public function verificarVinculo($idPedido, $idCaixa){
+        $c = new conectar();
+		$conexao = $c -> conexao();
+
+		$sql = "SELECT * FROM estoque_pedidos WHERE id_caixa = '$idCaixa' AND id_pedido = '$idPedido'";
+
+		$result = mysqli_query($conexao, $sql);
+		$mostrar = mysqli_fetch_row($result);
+
+        if($mostrar > 0){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public function RealizarBaixa($id) {

@@ -44,6 +44,7 @@
                         <li><a id="relatorioDiario" href="#">RELATÓRIO DIÁRIO</a></li>
                         <li><a id="relatorioSemanal" href="#">RELATÓRIO SEMANAL</a></li>
                         <li><a id="relatorioMensal" href="#">RELATÓRIO MENSAL</a></li>
+                        <li><a id="relatorioPersonalizado" href="#">RELATÓRIO PERSONALIZADO</a></li>
                     </ul>
                 </li>
             </ul>
@@ -123,6 +124,10 @@
 
     $("#relatorioMensal").click(function(e) {
         $("#conteudo").load("./Views/Relatorios/RelatorioMensal.php");
+    });
+
+    $("#relatorioPersonalizado").click(function(e) {
+        $("#conteudo").load("./Views/Relatorios/RelatorioPersonalizado.php");
     });
 
     $("#btnEnviarReport").click(function() {

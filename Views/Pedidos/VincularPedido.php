@@ -25,7 +25,7 @@
                                 <select class="form-control input-sm" id="clienteSelect" name="clienteSelect">
                                     <option value="">SELECIONE UM CLIENTE</option>
                                     <?php
-                                    $sql = "SELECT id_pedido, codigo, nome_cliente FROM estoque_pedidos WHERE status LIKE 'AGUARDANDO RETIRADA' ORDER BY nome_cliente DESC";
+                                    $sql = "SELECT id_pedido, codigo, nome_cliente FROM estoque_pedidos WHERE status LIKE 'AGUARDANDO RETIRADA' GROUP BY nome_cliente ORDER BY nome_cliente DESC";
                                     $result = mysqli_query($conexao, $sql);
 
                                     while ($mostrar = mysqli_fetch_row($result)) :
@@ -110,7 +110,6 @@
             }
 
             dados = $("#formulario").serialize();
-            debugger;
 
             $.ajax({
                 type: "POST",

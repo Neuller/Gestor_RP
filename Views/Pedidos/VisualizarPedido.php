@@ -207,6 +207,11 @@
                     }
                 }
             });
-        }, function() {});
+        }, function() {}).set({
+			labels: {
+				ok: "SIM",
+				cancel: "NÃO"
+			}
+		});
     }
 </script>

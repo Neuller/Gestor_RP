@@ -40,15 +40,14 @@
     });
 
     function initForm() {
-        $('#tabelaPedidosPendentesRetirada').load('./Views/Principal/TabelaPedidosPendentesRetirada.php');
-        $('#tabelaPedidosPendentesBaixa').load('./Views/Principal/TabelaPedidosPendentesBaixa.php');
+        $("#tabelaPedidosPendentesRetirada").load("./Views/Principal/TabelaPedidosPendentesRetirada.php");
+        $("#tabelaPedidosPendentesBaixa").load("./Views/Principal/TabelaPedidosPendentesBaixa.php");
     }
 
     function setEvents() {}
 
     function entregaRapida(idPedido, idCaixa) {
-        debugger;
-        alertify.confirm('ATENÇÃO', 'CONFIRMAR ENTREGA RÁPIDA DO PEDIDO?', function() {
+        alertify.confirm("ATENÇÃO", "CONFIRMAR ENTREGA RÁPIDA DO PEDIDO?", function() {
             alertify.confirm().close();
             $.ajax({
                 type: "POST",
@@ -57,11 +56,13 @@
                 success: function(r) {
                     debugger;
                     if (r > 0) {
-                        $('#tabelaPedidosPendentesRetirada').load('./Views/Principal/tabelaPedidosPendentesRetirada.php');
-                        $('#tabelaPedidosPendentesBaixa').load('./Views/Principal/TabelaPedidosPendentesBaixa.php');
+                        $("#tabelaPedidosPendentesRetirada").load("./Views/Principal/tabelaPedidosPendentesRetirada.php");
+                        $("#tabelaPedidosPendentesBaixa").load("./Views/Principal/TabelaPedidosPendentesBaixa.php");
                         alertify.success("ENTREGA REALIZADA");
                     } else {
-                        alertify.error("ERRO AO REALIZAR ENTREGA");
+                        $("#tabelaPedidosPendentesRetirada").load("./Views/Principal/tabelaPedidosPendentesRetirada.php");
+                        $("#tabelaPedidosPendentesBaixa").load("./Views/Principal/TabelaPedidosPendentesBaixa.php");
+                        alertify.error("ERRO AO REALIZAR ENTREGA, CONTATE O ADMINISTRADOR");
                     }
                 }
             });
@@ -69,7 +70,7 @@
     }
 
     function baixaPedido(id) {
-        alertify.confirm('ATENÇÃO', 'CONFIRMAR BAIXA DO PEDIDO?', function() {
+        alertify.confirm("ATENÇÃO", "CONFIRMAR BAIXA DO PEDIDO?", function() {
             alertify.confirm().close();
             $.ajax({
                 type: "POST",
@@ -77,11 +78,13 @@
                 url: "./Procedimentos/Pedidos/RealizarBaixaApp.php",
                 success: function(r) {
                     if (r > 0) {
-                        $('#tabelaPedidosPendentesRetirada').load('./Views/Principal/tabelaPedidosPendentesRetirada.php');
-                        $('#tabelaPedidosPendentesBaixa').load('./Views/Principal/TabelaPedidosPendentesBaixa.php');
+                        $("#tabelaPedidosPendentesRetirada").load("./Views/Principal/tabelaPedidosPendentesRetirada.php");
+                        $("#tabelaPedidosPendentesBaixa").load("./Views/Principal/TabelaPedidosPendentesBaixa.php");
                         alertify.success("BAIXA DO PEDIDO REALIZADA");
                     } else {
-                        alertify.error("ERRO AO REALIZAR BAIXA");
+                        $("#tabelaPedidosPendentesRetirada").load("./Views/Principal/tabelaPedidosPendentesRetirada.php");
+                        $("#tabelaPedidosPendentesBaixa").load("./Views/Principal/TabelaPedidosPendentesBaixa.php");
+                        alertify.error("ERRO AO REALIZAR BAIXA, CONTATE O ADMINISTRADOR");
                     }
                 }
             });
@@ -89,6 +92,6 @@
     }
 
     function visualizarPedido(id) {
-        $('#conteudo').load("./Views/Pedidos/VisualizarPedido.php?id=" + id);
+        $("#conteudo").load("./Views/Pedidos/VisualizarPedido.php?id=" + id);
     }
 </script>
