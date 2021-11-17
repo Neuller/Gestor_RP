@@ -213,12 +213,13 @@
     }
 
     function cancelarPedido() {
-        var id = $("#id").val();
+        let id = $("#id").val();
+        let lote = $("#lote").val();
         alertify.confirm('ATENÇÃO', 'CONFIRMAR CANCELAMENTO DO PEDIDO?', function() {
             alertify.confirm().close();
             $.ajax({
                 type: "POST",
-                data: "id=" + id,
+                data: {id : id, lote : lote},
                 url: "./Procedimentos/Pedidos/CancelarPedido.php",
                 success: function(r) {
                     if (r > 0) {

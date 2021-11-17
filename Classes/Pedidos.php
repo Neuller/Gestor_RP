@@ -41,11 +41,11 @@ class pedidos{
 		return mysqli_query($conexao, $sql);
     }
 
-    public function atualizarLotePVazio($idCaixa){
+    public function atualizarLotePVazio($caixa){
         $c = new conectar();
         $conexao = $c -> conexao();
 
-        $sql_lote = "UPDATE estoque_caixas SET status = 'VAZIO' WHERE id_caixa = '$idCaixa'";
+        $sql_lote = "UPDATE estoque_caixas SET status = 'VAZIO' WHERE id_caixa = '$caixa' OR descricao = '$caixa'";
 
         return mysqli_query($conexao, $sql_lote);
     }
@@ -130,6 +130,8 @@ class pedidos{
         WHERE id_pedido  = '$dados[0]'";
 
         $result = mysqli_query($conexao, $sql);
+
+        pedidos::atualizarLotePVazio($dados[1]);
         
         return $dados[0];
     }
