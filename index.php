@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once "./Dependencias.php";
 clearstatcache();
 ?>
@@ -20,18 +20,9 @@ clearstatcache();
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		initForm();
-		setEvents();
-	});
-
-	function initForm() {
 		$("#menuPrincipal").load("./Views/Menu/MenuPrincipal.php");
 		$("#conteudo").load("./Views/Principal/PaginaPrincipal.php");
-	}
-
-	function setEvents() {
-
-	}
+	});
 
 	function backupManual() {
 		alertify.confirm("BACKUP MANUAL", "GOSTARIA DE REALIZAR O BACKUP DA BASE ATUAL?", function() {
@@ -42,6 +33,11 @@ clearstatcache();
 					alertify.success("BACKUP REALIZADO COM SUCESSO");
 				}
 			});
-		}, function() {}).set({labels:{ok:"SIM", cancel: "NÃO"}});
+		}, function() {}).set({
+			labels: {
+				ok: "SIM",
+				cancel: "NÃO"
+			}
+		});
 	}
 </script>

@@ -32,9 +32,9 @@ $rSQLPedidosCancelados = mysqli_query($conexao, $sqlPedidosCancelados);
             <div class="card coluna-20">
                 <div class="card-body">
                     <h5 class="card-title">TOTAL DE PEDIDOS</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">GERAL</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">CANCELADOS</h6>
                     <?php
-                    while ($mostrar = mysqli_fetch_array($rSQlTotalPedidos)) {
+                    while ($mostrar = mysqli_fetch_array($rSQLPedidosCancelados)) {
                         echo
                         '
 						<p class="card-text">' . $mostrar[0] . '</p>
@@ -77,9 +77,9 @@ $rSQLPedidosCancelados = mysqli_query($conexao, $sqlPedidosCancelados);
             <div class="card coluna-20">
                 <div class="card-body">
                     <h5 class="card-title">TOTAL DE PEDIDOS</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">CANCELADOS</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">GERAL</h6>
                     <?php
-                    while ($mostrar = mysqli_fetch_array($rSQLPedidosCancelados)) {
+                    while ($mostrar = mysqli_fetch_array($rSQlTotalPedidos)) {
                         echo
                         '
 						<p class="card-text">' . $mostrar[0] . '</p>

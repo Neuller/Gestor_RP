@@ -12,7 +12,7 @@
     <div class="container">
         <div class="cabecalho bgPrincipal">
             <div class="tituloForm">
-                <h3><strong>CADASTRAR PEDIDO</strong></h3>
+                <h3><strong>CADASTRAR PEDIDOS</strong></h3>
             </div>
         </div>
         <div>

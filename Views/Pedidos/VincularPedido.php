@@ -12,7 +12,7 @@
     <div class="container">
         <div class="cabecalho bgPrincipal">
             <div class="tituloForm">
-                <h3><strong>VINCULAR PEDIDO</strong></h3>
+                <h3><strong>VINCULAR PEDIDOS</strong></h3>
             </div>
         </div>
         <div>
@@ -33,6 +33,7 @@
                                         <option value="<?php echo $mostrar[0] ?>"><?php echo $mostrar[1] ?> - <?php echo $mostrar[2] ?></option>
                                     <?php endwhile; ?>
                                 </select>
+                                <input type="hidden" class="form-control input-sm text-uppercase" id="AUX_nomeCliente" name="AUX_nomeCliente">
                             </div>
                         </div>
 
@@ -48,6 +49,7 @@
                                 <div>
                                     <label>LOCALIZAÇÃO</label>
                                     <input type="text" readonly class="form-control input-sm text-uppercase" id="lote" name="lote">
+                                    <input type="hidden" class="form-control input-sm text-uppercase" id="AUX_lote" name="AUX_lote">
                                 </div>
                             </div>
 
@@ -70,7 +72,7 @@
 
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div>
-                                    <span class="btn btn-primary btn-lg btnLayout" id="btnCadastrar" title="CADASTRAR">CADASTRAR</span>
+                                    <span class="btn btn-primary btn-lg btnLayout" id="btnVincular" title="VINCULAR">VINCULAR</span>
                                 </div>
                             </div>
 
@@ -97,7 +99,7 @@
     }
 
     function setEvents() {
-        $("#btnCadastrar").click(function() {
+        $("#btnVincular").click(function() {
             var validator = $("#formulario").validate();
             validator.form();
             var checkValidator = validator.checkForm();
@@ -108,18 +110,19 @@
             }
 
             dados = $("#formulario").serialize();
+            debugger;
 
             $.ajax({
                 type: "POST",
                 data: dados,
-                url: "./Procedimentos/Pedidos/CadastrarPedido.php",
+                url: "./Procedimentos/Pedidos/VincularPedido.php",
                 success: function(r) {
                     if (r > 0) {
                         $("#conteudo").load("./Views/Pedidos/VincularPedido.php");
-                        alertify.success("CADASTRO REALIZADO");
+                        alertify.success("VÍNCULO ENTRE PEDIDOS REALIZADO");
                     } else {
                         $("#conteudo").load("./Views/Pedidos/VincularPedido.php");
-                        alertify.error("NÃO FOI POSSÍVEL CADASTRAR");
+                        alertify.error("NÃO FOI POSSÍVEL VINCULAR");
                     }
                 }
             });
@@ -145,6 +148,7 @@
                     url: "./Procedimentos/Pedidos/ObterDadosPedido.php",
                     success: function(r) {
                         dado = jQuery.parseJSON(r);
+                        $("#AUX_nomeCliente").val(dado.nome_cliente);
                         $.ajax({
                             type: "POST",
                             data: "idLote=" + dado.id_caixa,
@@ -152,6 +156,7 @@
                         }).then(function(data) {
                             var lote = JSON.parse(data);
                             $("#lote").val(lote);
+                            $("#AUX_lote").val(dado.id_caixa);
                         });
                     }
                 });

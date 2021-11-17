@@ -4,11 +4,14 @@
     <nav class="navbar-expand navbar-light">
         <div id="navbar">
             <ul class="nav navbar-nav">
-                <li><a id="paginaPrincipal" href="#">PÁGINA INICIAL</a></li>
-                <li><a id="acompanharPedidos" href="#">ACOMPANHAR PEDIDOS</a></li>
-                <li><a id="cadastrarPedido" href="#">CADASTRAR PEDIDOS</a></li>
-                <li><a id="vincularPedidos" href="#">VINCULAR PEDIDOS</a></li>
-                <li><a id="todosPedidos" href="#">TODOS OS PEDIDOS</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        CONFIGURAÇÕES
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a id="backup" href="#" onclick="backupManual()">BACKUP MANUAL</a></li>
+                    </ul>
+                </li>
 
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -18,17 +21,34 @@
                         <li><a id="cadastrarLote" href="#">CADASTRAR LOTE</a></li>
                     </ul>
                 </li>
+
+                <li><a id="paginaPrincipal" href="#">PÁGINA INICIAL</a></li>
+
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        CONFIGURAÇÕES
+                        PEDIDOS
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a id="backup" href="#" onclick="backupManual()">BACKUP MANUAL</a></li>
+                        <li><a id="acompanharPedidos" href="#">ACOMPANHAR PEDIDOS</a></li>
+                        <li><a id="cadastrarPedido" href="#">CADASTRAR PEDIDOS</a></li>
+                        <li><a id="todosPedidos" href="#">TODOS OS PEDIDOS</a></li>
+                        <li><a id="vincularPedidos" href="#">VINCULAR PEDIDOS</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        RELATÓRIOS
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a id="relatorioDiario" href="#">RELATÓRIO DIÁRIO</a></li>
+                        <li><a id="relatorioSemanal" href="#">RELATÓRIO SEMANAL</a></li>
+                        <li><a id="relatorioMensal" href="#">RELATÓRIO MENSAL</a></li>
                     </ul>
                 </li>
             </ul>
             <form class="form-inline">
-                <button type="button" id="btnReport" class="btn btn-link btn-lg" title="REPORTAR PROBLEMA" data-toggle="modal" data-target="#modalReport">
+                <button type="button" id="btnReport" class="btn btn-md btn-danger" title="REPORTAR PROBLEMA" data-toggle="modal" data-target="#modalReport">
                     <span class="glyphicon glyphicon-exclamation-sign"></span>
                 </button>
             </form>
@@ -65,66 +85,71 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        initForm();
-        setEvents();
-    });
-
-    function initForm() {
         validarForm("formReport");
         camposObrigatorios(["report"], true);
-    }
+    });
 
-    function setEvents() {
-        $("#paginaPrincipal").click(function(e) {
-            $("#conteudo").load("./Views/Principal/PaginaPrincipal.php");
-        });
+    $("#paginaPrincipal").click(function(e) {
+        $("#conteudo").load("./Views/Principal/PaginaPrincipal.php");
+    });
 
-        $("#cadastrarPedido").click(function(e) {
-            $("#conteudo").load("./Views/Pedidos/CadastrarPedido.php");
-        });
+    $("#cadastrarPedido").click(function(e) {
+        $("#conteudo").load("./Views/Pedidos/CadastrarPedido.php");
+    });
 
-        $("#vincularPedidos").click(function(e) {
-            $("#conteudo").load("./Views/Pedidos/VincularPedido.php");
-        });
+    $("#vincularPedidos").click(function(e) {
+        $("#conteudo").load("./Views/Pedidos/VincularPedido.php");
+    });
 
-        $("#cadastrarLote").click(function(e) {
-            $("#conteudo").load("./Views/Estoque/Lote.php");
-        });
+    $("#cadastrarLote").click(function(e) {
+        $("#conteudo").load("./Views/Estoque/Lote.php");
+    });
 
-        $("#acompanharPedidos").click(function(e) {
-            $("#conteudo").load("./Views/Principal/AcompanharPedidos.php");
-        });
+    $("#acompanharPedidos").click(function(e) {
+        $("#conteudo").load("./Views/Principal/AcompanharPedidos.php");
+    });
 
-        $("#todosPedidos").click(function(e) {
-            $("#conteudo").load("./Views/Pedidos/TodosPedidos.php");
-        });
+    $("#todosPedidos").click(function(e) {
+        $("#conteudo").load("./Views/Pedidos/TodosPedidos.php");
+    });
 
-        $("#btnEnviarReport").click(function() {
-            var validator = $("#formReport").validate();
-            validator.form();
-            var checkValidator = validator.checkForm();
+    $("#relatorioDiario").click(function(e) {
+        $("#conteudo").load("./Views/Relatorios/RelatorioDiario.php");
+    });
 
-            if (checkValidator == false) {
-                alertify.error("PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS");
-                return false;
-            }
+    $("#relatorioSemanal").click(function(e) {
+        $("#conteudo").load("./Views/Relatorios/RelatorioSemanal.php");
+    });
 
-            dados = $("#formReport").serialize();
+    $("#relatorioMensal").click(function(e) {
+        $("#conteudo").load("./Views/Relatorios/RelatorioMensal.php");
+    });
 
-            $.ajax({
-                type: "POST",
-                data: dados,
-                url: "./Procedimentos/TI/ReportarProblema.php",
-                success: function(r) {
-                    if (r > 0) {
-                        $("#formReport")[0].reset();
-                        $("#modalReport").modal("hide");
-                        alertify.success("ENVIO REALIZADO");
-                    } else {
-                        alertify.error("NÃO FOI POSSÍVEL ENVIAR");
-                    }
+    $("#btnEnviarReport").click(function() {
+        var validator = $("#formReport").validate();
+        validator.form();
+        var checkValidator = validator.checkForm();
+
+        if (checkValidator == false) {
+            alertify.error("PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS");
+            return false;
+        }
+
+        dados = $("#formReport").serialize();
+
+        $.ajax({
+            type: "POST",
+            data: dados,
+            url: "./Procedimentos/TI/ReportarProblema.php",
+            success: function(r) {
+                if (r > 0) {
+                    $("#formReport")[0].reset();
+                    $("#modalReport").modal("hide");
+                    alertify.success("ENVIO REALIZADO");
+                } else {
+                    alertify.error("NÃO FOI POSSÍVEL ENVIAR");
                 }
-            });
+            }
         });
-    }
+    });
 </script>
