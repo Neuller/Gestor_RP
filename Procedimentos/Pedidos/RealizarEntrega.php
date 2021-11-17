@@ -6,8 +6,8 @@ require_once "../../Classes/Pedidos.php";
 $obj = new pedidos();
 
 $idPedido = $_POST["idPedido"];
-$idCaixa = $_POST["idCaixa"];
 $nomeCliente = $_POST["nomeCliente"];
+$idCaixa = $_POST["idCaixa"];
 
-echo $obj -> RealizarEntrega($idPedido, $idCaixa, $nomeCliente);
+echo $obj -> RealizarEntrega($idPedido, $nomeCliente, $idCaixa);
 ?>

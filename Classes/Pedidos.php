@@ -24,7 +24,7 @@ class pedidos{
 		echo mysqli_query($conexao, $sql);
     }
 
-    public function RealizarEntrega($idPedido, $idCaixa, $nomeCliente) {
+    public function RealizarEntrega($idPedido, $nomeCliente, $idCaixa) {
         $c = new conectar();
         $conexao = $c -> conexao();
         $data = date('Y-m-d');
@@ -54,11 +54,11 @@ class pedidos{
         $c = new conectar();
 		$conexao = $c -> conexao();
 
-		$sql = "SELECT * FROM estoque_pedidos WHERE nome_cliente = '$nomeCliente' AND id_caixa = '$idCaixa'";
+		$sql = "SELECT * FROM estoque_pedidos WHERE nome_cliente = '$nomeCliente' AND id_caixa = '$idCaixa' AND status = 'AGUARDANDO RETIRADA'";
 
 		$result = mysqli_query($conexao, $sql);
 
-        if($result -> num_rows > 0){
+        if($result -> num_rows > 1){
             return true;
         }else{
             return false;

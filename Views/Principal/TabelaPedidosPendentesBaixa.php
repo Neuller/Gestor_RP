@@ -55,6 +55,5 @@ $result = mysqli_query($conexao, $sql);
 
 <script>
 	$(document).ready(function() {
-		
 	});
 </script>
