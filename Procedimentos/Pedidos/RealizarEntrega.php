@@ -7,6 +7,7 @@ $obj = new pedidos();
 
 $idPedido = $_POST["idPedido"];
 $idCaixa = $_POST["idCaixa"];
+$nomeCliente = $_POST["nomeCliente"];
 
-echo $obj -> RealizarEntrega($idPedido, $idCaixa);
+echo $obj -> RealizarEntrega($idPedido, $idCaixa, $nomeCliente);
 ?>

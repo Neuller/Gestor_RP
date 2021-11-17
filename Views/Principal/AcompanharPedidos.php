@@ -46,12 +46,12 @@
 
     function setEvents() {}
 
-    function entregaRapida(idPedido, idCaixa) {
+    function entregaRapida(idPedido, idCaixa, nomeCliente) {
         alertify.confirm("ATENÇÃO", "CONFIRMAR ENTREGA RÁPIDA DO PEDIDO?", function() {
             alertify.confirm().close();
             $.ajax({
                 type: "POST",
-                data: {idPedido : idPedido, idCaixa : idCaixa},
+                data: {idPedido : idPedido, idCaixa : idCaixa, nomeCliente : nomeCliente},
                 url: "./Procedimentos/Pedidos/RealizarEntrega.php",
                 success: function(r) {
                     debugger;

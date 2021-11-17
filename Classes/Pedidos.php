@@ -24,7 +24,7 @@ class pedidos{
 		echo mysqli_query($conexao, $sql);
     }
 
-    public function RealizarEntrega($idPedido, $idCaixa) {
+    public function RealizarEntrega($idPedido, $idCaixa, $nomeCliente) {
         $c = new conectar();
         $conexao = $c -> conexao();
         $data = date('Y-m-d');
@@ -32,7 +32,9 @@ class pedidos{
         $sql = "UPDATE estoque_pedidos SET status = 'PENDENTE BAIXA NO APP', data_saida = '$data'
 		WHERE id_pedido = '$idPedido'";
 
-        if(pedidos::verificarVinculo($idPedido, $idCaixa) == false){
+        $pedidosVinculo = pedidos::verificarVinculo($nomeCliente, $idCaixa);
+
+        if($pedidosVinculo == false){
             pedidos::atualizarLotePVazio($idCaixa);
         }
 
@@ -48,16 +50,15 @@ class pedidos{
         return mysqli_query($conexao, $sql_lote);
     }
 
-    public function verificarVinculo($idPedido, $idCaixa){
+    public function verificarVinculo($nomeCliente, $idCaixa){
         $c = new conectar();
 		$conexao = $c -> conexao();
 
-		$sql = "SELECT * FROM estoque_pedidos WHERE id_caixa = '$idCaixa' AND id_pedido = '$idPedido'";
+		$sql = "SELECT * FROM estoque_pedidos WHERE nome_cliente = '$nomeCliente' AND id_caixa = '$idCaixa'";
 
 		$result = mysqli_query($conexao, $sql);
-		$mostrar = mysqli_fetch_row($result);
 
-        if($mostrar > 0){
+        if($result -> num_rows > 0){
             return true;
         }else{
             return false;
