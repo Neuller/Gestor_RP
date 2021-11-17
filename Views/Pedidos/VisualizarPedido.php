@@ -95,6 +95,7 @@
                             <div>
                                 <span class="btn btn-danger btn-lg btnLayout" id="btnCancelar" title="CANCELAR PEDIDO" onclick="cancelarPedido()">CANCELAR PEDIDO</span>
                                 <span class="btn btn-warning btn-lg btnLayout" id="btnSalvar" title="SALVAR">SALVAR</span>
+                                <span class="btn btn-warning btn-lg btnLayout" id="btnSalvarPedidoEntregue" title="SALVAR">SALVAR</span>
                                 <span class="btn btn-danger btn-lg btnLayout" id="btnVoltar" title="VOLTAR" onclick="voltar()">VOLTAR</span>
                             </div>
                         </div>
@@ -109,44 +110,63 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        initForm();
-        setEvents();
-    });
-
-    function initForm() {
         var id = "<?php echo @$id ?>";
         obterDadosPedido(id);
         validarForm("formulario");
         camposObrigatorios(["nomeCliente"], true);
-    }
+    });
 
-    function setEvents() {
-        $("#btnSalvar").click(function() {
-            var validator = $("#formulario").validate();
-            validator.form();
-            var checkValidator = validator.checkForm();
+    $("#btnSalvar").click(function() {
+        var validator = $("#formulario").validate();
+        validator.form();
+        var checkValidator = validator.checkForm();
 
-            if (checkValidator == false) {
-                alertify.error("PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS");
-                return false;
-            }
+        if (checkValidator == false) {
+            alertify.error("PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS");
+            return false;
+        }
 
-            dados = $("#formulario").serialize();
+        dados = $("#formulario").serialize();
 
-            $.ajax({
-                type: "POST",
-                data: dados,
-                url: "./Procedimentos/Pedidos/AtualizarPedido.php",
-                success: function(r) {
-                    if (r > 0) {
-                        alertify.success("PEDIDO ATUALIZADO");
-                    } else {
-                        alertify.error("NÃO FOI POSSÍVEL ATUALIZAR O PEDIDO");
-                    }
+        $.ajax({
+            type: "POST",
+            data: dados,
+            url: "./Procedimentos/Pedidos/AtualizarPedidoEntregue.php",
+            success: function(r) {
+                if (r > 0) {
+                    alertify.success("PEDIDO ATUALIZADO");
+                } else {
+                    alertify.error("NÃO FOI POSSÍVEL ATUALIZAR O PEDIDO");
                 }
-            });
+            }
         });
-    }
+    });
+
+    $("#btnSalvarPedidoEntregue").click(function() {
+        var validator = $("#formulario").validate();
+        validator.form();
+        var checkValidator = validator.checkForm();
+
+        if (checkValidator == false) {
+            alertify.error("PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS");
+            return false;
+        }
+
+        dados = $("#formulario").serialize();
+
+        $.ajax({
+            type: "POST",
+            data: dados,
+            url: "./Procedimentos/Pedidos/AtualizarPedidoEntregue.php",
+            success: function(r) {
+                if (r > 0) {
+                    alertify.success("PEDIDO ATUALIZADO");
+                } else {
+                    alertify.error("NÃO FOI POSSÍVEL ATUALIZAR O PEDIDO");
+                }
+            }
+        });
+    });
 
     function obterDadosPedido(id) {
         $.ajax({
@@ -178,11 +198,13 @@
     }
 
     function verificaStatus(status) {
-        console.log(status);
         if (status != "AGUARDANDO RETIRADA") {
-            bloquearCampos(["nomeCliente", "observacao", "taxaComissao"], true);
+            bloquearCampos(["nomeCliente", "observacao"], true);
             $("#btnSalvar").hide();
+            $("#btnSalvarPedidoEntregue").show();
             $("#btnCancelar").hide();
+        }else{
+            $("#btnSalvarPedidoEntregue").hide();
         }
     }
 
@@ -208,10 +230,10 @@
                 }
             });
         }, function() {}).set({
-			labels: {
-				ok: "SIM",
-				cancel: "NÃO"
-			}
-		});
+            labels: {
+                ok: "SIM",
+                cancel: "NÃO"
+            }
+        });
     }
 </script>

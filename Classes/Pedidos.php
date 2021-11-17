@@ -112,6 +112,16 @@ class pedidos{
         return mysqli_query($conexao, $sql);
     }
 
+    public function AtualizarPedidoEntregue($dados) {
+        $c = new conectar();
+        $conexao = $c -> conexao();
+
+        $sql = "UPDATE estoque_pedidos SET taxa_comissao = '$dados[1]'
+        WHERE id_pedido  = '$dados[0]'";
+        
+        return mysqli_query($conexao, $sql);
+    }
+
     public function CancelarPedido($dados) {
         $c = new conectar();
         $conexao = $c -> conexao();
