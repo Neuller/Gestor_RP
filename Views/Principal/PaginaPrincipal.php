@@ -32,7 +32,7 @@ $rSQLPedidosCancelados = mysqli_query($conexao, $sqlPedidosCancelados);
             <div class="card coluna-20">
                 <div class="card-body">
                     <h5 class="card-title">TOTAL DE PEDIDOS</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">CANCELADOS</h6>
+                    <h6 class="card-subtitle mb-2 text-muted" style="color: red">CANCELADOS</h6>
                     <?php
                     while ($mostrar = mysqli_fetch_array($rSQLPedidosCancelados)) {
                         echo
@@ -47,7 +47,7 @@ $rSQLPedidosCancelados = mysqli_query($conexao, $sqlPedidosCancelados);
             <div class="card coluna-20">
                 <div class="card-body">
                     <h5 class="card-title">TOTAL DE PEDIDOS</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">EM ESTOQUE</h6>
+                    <h6 class="card-subtitle mb-2 text-muted" style="color: orange">EM ESTOQUE</h6>
                     <?php
                     while ($mostrar = mysqli_fetch_array($rSQlPedidosEstoque)) {
                         echo
@@ -62,7 +62,7 @@ $rSQLPedidosCancelados = mysqli_query($conexao, $sqlPedidosCancelados);
             <div class="card coluna-20">
                 <div class="card-body">
                     <h5 class="card-title">TOTAL DE PEDIDOS</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">ENTREGUES</h6>
+                    <h6 class="card-subtitle mb-2 text-muted" style="color: green">ENTREGUES</h6>
                     <?php
                     while ($mostrar = mysqli_fetch_array($rSQLPedidosEntregues)) {
                         echo
@@ -77,7 +77,7 @@ $rSQLPedidosCancelados = mysqli_query($conexao, $sqlPedidosCancelados);
             <div class="card coluna-20">
                 <div class="card-body">
                     <h5 class="card-title">TOTAL DE PEDIDOS</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">GERAL</h6>
+                    <h6 class="card-subtitle mb-2 text-muted" style="font-weight: bold; color: black;">GERAL</h6>
                     <?php
                     while ($mostrar = mysqli_fetch_array($rSQlTotalPedidos)) {
                         echo
