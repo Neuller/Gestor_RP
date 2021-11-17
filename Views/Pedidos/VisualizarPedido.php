@@ -39,7 +39,7 @@
                         <div class="col-md-12 col-sm-12 col-xs-12 itensForm">
                             <div>
                                 <label>NOME DO CLIENTE</label>
-                                <input type="text" class="form-control input-sm text-uppercase" id="nomeCliente" name="nomeCliente">
+                                <input type="text" readonly class="form-control input-sm text-uppercase" id="nomeCliente" name="nomeCliente">
                             </div>
                         </div>
 
@@ -113,7 +113,7 @@
         var id = "<?php echo @$id ?>";
         obterDadosPedido(id);
         validarForm("formulario");
-        camposObrigatorios(["nomeCliente"], true);
+        camposObrigatorios(["taxaComissao"], true);
     });
 
     $("#btnSalvar").click(function() {
@@ -131,7 +131,7 @@
         $.ajax({
             type: "POST",
             data: dados,
-            url: "./Procedimentos/Pedidos/AtualizarPedidoEntregue.php",
+            url: "./Procedimentos/Pedidos/AtualizarPedido.php",
             success: function(r) {
                 if (r > 0) {
                     alertify.success("PEDIDO ATUALIZADO");
@@ -199,7 +199,7 @@
 
     function verificaStatus(status) {
         if (status != "AGUARDANDO RETIRADA") {
-            bloquearCampos(["nomeCliente", "observacao"], true);
+            bloquearCampos(["observacao"], true);
             $("#btnSalvar").hide();
             $("#btnSalvarPedidoEntregue").show();
             $("#btnCancelar").hide();
