@@ -48,6 +48,7 @@
                     </ul>
                 </li>
             </ul>
+
             <form class="form-inline">
                 <button type="button" id="btnReport" class="btn btn-md btn-danger" title="REPORTAR PROBLEMA" data-toggle="modal" data-target="#modalReport">
                     <span class="glyphicon glyphicon-exclamation-sign"></span>

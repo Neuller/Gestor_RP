@@ -7,9 +7,17 @@ clearstatcache();
 <html lang="pt-br">
 
 <body>
-	<div class="container">
+	<div class="navbar navbar-light">
 		<div class="container">
+			<div class="logo" id="logo">
+				<a class="navbar-brand" href="#"><img class="img-responsive img-thumbnail" src="./Img/Logo.png" title="GESTOR - RETIRADA DE PEDIDOS" width="200px" height="150px"></a>
+			</div>
+
 			<div id="menuPrincipal"></div>
+		</div>
+
+		<div>
+			<img src="./Img/Banner.png" class="img-fluid">
 		</div>
 
 		<div id="conteudo"></div>
@@ -23,6 +31,10 @@ clearstatcache();
 		$("#menuPrincipal").load("./Views/Menu/MenuPrincipal.php");
 		$("#conteudo").load("./Views/Principal/PaginaPrincipal.php");
 	});
+	
+    $("#logo").click(function(e) {
+        $("#conteudo").load("./Views/Principal/PaginaPrincipal.php");
+    });
 
 	function backupManual() {
 		alertify.confirm("BACKUP MANUAL", "GOSTARIA DE REALIZAR O BACKUP DA BASE ATUAL?", function() {
