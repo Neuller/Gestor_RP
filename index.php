@@ -17,7 +17,7 @@ clearstatcache();
 		</div>
 
 		<div>
-			<img src="./Img/Banner.png" class="img-fluid">
+			<img src="./Img/Banner.png" class="img-fluid" style="max-width: 100%">
 		</div>
 
 		<div id="conteudo"></div>
