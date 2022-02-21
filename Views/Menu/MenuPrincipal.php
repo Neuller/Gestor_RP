@@ -4,14 +4,9 @@
     <nav class="navbar-expand navbar-light">
         <div id="navbar">
             <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        CONFIGURAÇÕES
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a id="backup" href="#" onclick="backupManual()">BACKUP MANUAL</a></li>
-                    </ul>
-                </li>
+                <li><a id="paginaPrincipal" href="#">PÁGINA INICIAL</a></li>
+                
+                <li><a id="acompanharPedidos" href="#">ACOMPANHAR PEDIDOS</a></li>
 
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -22,14 +17,11 @@
                     </ul>
                 </li>
 
-                <li><a id="paginaPrincipal" href="#">PÁGINA INICIAL</a></li>
-
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         PEDIDOS
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a id="acompanharPedidos" href="#">ACOMPANHAR PEDIDOS</a></li>
                         <li><a id="cadastrarPedido" href="#">CADASTRAR PEDIDOS</a></li>
                         <li><a id="todosPedidos" href="#">TODOS OS PEDIDOS</a></li>
                         <li><a id="vincularPedidos" href="#">VINCULAR PEDIDOS</a></li>
@@ -45,6 +37,15 @@
                         <li><a id="relatorioSemanal" href="#">RELATÓRIO SEMANAL</a></li>
                         <li><a id="relatorioMensal" href="#">RELATÓRIO MENSAL</a></li>
                         <li><a id="relatorioPersonalizado" href="#">RELATÓRIO PERSONALIZADO</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        CONFIGURAÇÕES
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a id="backup" href="#" onclick="backupManual()">BACKUP MANUAL</a></li>
                     </ul>
                 </li>
             </ul>

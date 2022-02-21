@@ -6,7 +6,7 @@
 <meta name="author" content="">
 
 <!-- TÍTULO -->
-<title>GESTOR RP</title>
+<title>GESTOR - RP</title>
 
 <!-- ICONE -->
 <link rel="icon" href="Img/Icone.ico">

@@ -30,6 +30,7 @@ $result = mysqli_query($conexao, $sql);
 					<td>NOME DO CLIENTE</td>
 					<td>LOCALIZAÇÃO</td>
 					<td>STATUS</td>
+					<td>DATA DE ENTRADA</td>
 					<td>VISUALIZAR</td>
 					<td>ENTREGA RÁPIDA</td>
 				</tr>
@@ -44,6 +45,7 @@ $result = mysqli_query($conexao, $sql);
 						<td>' . $mostrar[2] . '</td>
 						<td>' . $objUtils -> nomeEstoqueCaixa($mostrar[3]) . '</td>
 						<td>' . $mostrar[7] . '</td>
+						<td>' . $objUtils -> data($mostrar[5]) . '</td>
 						<td>' . '<span class="btn btn-primary btn-md" data-toggle="modal" data-target="#visualizarPedido" title="VISUALIZAR" onclick="visualizarPedido('.$mostrar[0].')">
 						<span class="glyphicon glyphicon-search"></span>
 						</span>' . '</td>		
