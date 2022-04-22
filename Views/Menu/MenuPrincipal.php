@@ -33,10 +33,7 @@
                         RELATÓRIOS
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a id="relatorioDiario" href="#">RELATÓRIO DIÁRIO</a></li>
-                        <li><a id="relatorioSemanal" href="#">RELATÓRIO SEMANAL</a></li>
-                        <li><a id="relatorioMensal" href="#">RELATÓRIO MENSAL</a></li>
-                        <li><a id="relatorioPersonalizado" href="#">RELATÓRIO PERSONALIZADO</a></li>
+                        <li><a id="gerarRelatorio" href="#">GERAR RELATÓRIO</a></li>
                     </ul>
                 </li>
                 
@@ -116,20 +113,8 @@
         $("#conteudo").load("./Views/Pedidos/TodosPedidos.php");
     });
 
-    $("#relatorioDiario").click(function(e) {
-        $("#conteudo").load("./Views/Relatorios/RelatorioDiario.php");
-    });
-
-    $("#relatorioSemanal").click(function(e) {
-        $("#conteudo").load("./Views/Relatorios/RelatorioSemanal.php");
-    });
-
-    $("#relatorioMensal").click(function(e) {
-        $("#conteudo").load("./Views/Relatorios/RelatorioMensal.php");
-    });
-
-    $("#relatorioPersonalizado").click(function(e) {
-        $("#conteudo").load("./Views/Relatorios/RelatorioPersonalizado.php");
+    $("#gerarRelatorio").click(function(e) {
+        $("#conteudo").load("./Views/Relatorios/gerarRelatorio.php");
     });
 
     $("#btnEnviarReport").click(function() {

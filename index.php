@@ -9,9 +9,9 @@ clearstatcache();
 <body>
 	<div class="navbar navbar-light">
 		<div class="container">
-			<div class="logo" id="logo">
+			<!-- <div class="logo" id="logo">
 				<a class="navbar-brand" href="#"><img class="img-responsive img-thumbnail" src="./Img/Logo.png" title="GESTOR - RETIRADA DE PEDIDOS" width="200px" height="150px"></a>
-			</div>
+			</div> -->
 
 			<div id="menuPrincipal"></div>
 		</div>
