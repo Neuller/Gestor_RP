@@ -6,9 +6,12 @@ $c = new conectar();
 $conexao = $c -> conexao();
 $objUtils = new utilitarios();
 
+$data1 = $_GET["data1"];
+$data2 = $_GET["data2"];
 
 $sql = "SELECT codigo, nome_cliente, id_caixa, data_entrada, data_saida, status, data_saida_baixa, taxa_comissao
 FROM estoque_pedidos 
+WHERE data_entrada >= '$data1' AND data_entrada <= '$data2'
 ORDER BY id_pedido DESC";
 
 $result = mysqli_query($conexao, $sql);

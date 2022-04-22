@@ -68,7 +68,7 @@
             return false;
         } else {
             dados = $("#formulario").serialize();
-            $("#tabelaRelatorios").load("./Views/Relatorios/TabelaRelatorios.php");
+            $("#tabelaRelatorios").load("./Views/Relatorios/TabelaRelatorios.php", dados);
         }
     });
 </script>
