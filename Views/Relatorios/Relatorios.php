@@ -35,7 +35,6 @@
                     
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div>
-                                <!-- <a href="./Procedimentos/Relatorios/GerarRelatorio.php" target="_blank"><span class="btn btn-primary btn-lg btnLayout" id="btnGerar" title="GERAR">GERAR</span></a> -->
                                 <span class="btn btn-primary btn-lg btnLayout" id="btnGerar" title="GERAR">GERAR</span>
                             </div>
                         </div>
