@@ -59,7 +59,7 @@ class estoque{
         $result = mysqli_query($conexao, $sql);
         $mostrar = mysqli_fetch_row($result);
 
-        return $mostrar[0];
+        return $mostrar;
     }
 
     public function DescLote($idLote) {
