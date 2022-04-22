@@ -114,7 +114,7 @@
     });
 
     $("#gerarRelatorio").click(function(e) {
-        $("#conteudo").load("./Views/Relatorios/gerarRelatorio.php");
+        $("#conteudo").load("./Views/Relatorios/Relatorios.php");
     });
 
     $("#btnEnviarReport").click(function() {

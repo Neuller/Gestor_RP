@@ -35,7 +35,7 @@
                     
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div>
-                                <span class="btn btn-primary btn-lg btnLayout" id="btnGerar" title="GERAR">GERAR</span>
+                                <a href="./Procedimentos/Relatorios/GerarRelatorio.php" target="_blank"><span class="btn btn-primary btn-lg btnLayout" id="btnGerar" title="GERAR">GERAR</span></a>
                             </div>
                         </div>
                     </div>
@@ -54,17 +54,20 @@
     });
 
     $("#btnGerar").click(function() {
-            var validator = $("#formulario").validate();
-            validator.form();
-            var checkValidator = validator.checkForm();
+        var validator = $("#formulario").validate();
+        validator.form();
+        var checkValidator = validator.checkForm();
 
-            if (checkValidator == false) {
-                alertify.error("PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS");
-                return false;
-            }
-
+        if (checkValidator == false) {
+            alertify.error("PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS");
+            return false;
+        } else {
             dados = $("#formulario").serialize();
-
-            
+            $.ajax({
+            type: "POST",
+            data: dados,
+            url: "./Procedimentos/Relatorios/GerarRelatorio.php"
         });
+        }
+    });
 </script>
