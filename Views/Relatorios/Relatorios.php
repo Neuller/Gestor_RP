@@ -39,6 +39,10 @@
                                 <span class="btn btn-primary btn-lg btnLayout" id="btnGerar" title="GERAR">GERAR</span>
                             </div>
                         </div>
+
+                        <div class="col-md-12 col-sm-12 col-xs-12 itensForm">
+                            <div class="row" id="tabelaRelatorios"></div>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -64,14 +68,7 @@
             return false;
         } else {
             dados = $("#formulario").serialize();
-            $.ajax({
-                type: "POST",
-                data: dados,
-                url: "./Procedimentos/Relatorios/GerarRelatorio.php",
-                success: function(r) {
-                    debugger;
-                }
-            });
+            $("#tabelaRelatorios").load("./Views/Relatorios/TabelaRelatorios.php");
         }
     });
 </script>

@@ -1,24 +1,22 @@
-const esconderCampos = function (nomeCampos) {
+const mostrarCampo = function(nomeCampos, boolean) {
     campo = Array.isArray(nomeCampos) ? nomeCampos : nomeCampos.split(",");
 
-    campo.forEach(function (valor) {
-        $("#" + valor).hide();
-    });
+    if (boolean == true) {
+        campo.forEach(function(valor) {
+            $("#" + valor).show();
+        });
+    } else if (boolean == false) {
+        campo.forEach(function(valor) {
+            $("#" + valor).hide();
+        });
+    }
 };
 
-const mostrarCampos = function (nomeCampos) {
-    campo = Array.isArray(nomeCampos) ? nomeCampos : nomeCampos.split(",");
-
-    campo.forEach(function (valor) {
-        $("#" + valor).show();
-    });
-};
-
-const bloquearCampos = function (nomeCampos, show) {
+const bloquearCampo = function(nomeCampos, show) {
     show = show !== undefined ? show : true;
     campo = Array.isArray(nomeCampos) ? nomeCampos : nomeCampos.split(",");
 
-    campo.forEach(function (valor) {
+    campo.forEach(function(valor) {
         if (show == true) {
             $("#" + valor).prop("disabled", true);
         } else {
@@ -28,15 +26,15 @@ const bloquearCampos = function (nomeCampos, show) {
     });
 };
 
-const limparCampos = function (nomeCampos) {
+const limparCampo = function(nomeCampos) {
     campo = Array.isArray(nomeCampos) ? nomeCampos : nomeCampos.split(",");
 
-    campo.forEach(function (valor) {
+    campo.forEach(function(valor) {
         $("#" + valor).val("");
     });
 };
 
-const getValor = function (nomeCampo) {
+const getValor = function(nomeCampo) {
     let valor = $("#" + nomeCampo).val();
     valor = Array.isArray(valor) ? valor.join("") : valor;
 
