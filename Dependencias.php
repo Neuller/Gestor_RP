@@ -40,15 +40,10 @@
 
 <!-- CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
-
 <link rel="stylesheet" type="text/css" href="Lib/alertifyjs/css/alertify.css">
-
 <link rel="stylesheet" type="text/css" href="Lib/alertifyjs/css/themes/default.css">
-
 <link rel="stylesheet" type="text/css" href="Lib/select2/css/select2.css">
-
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
 <link rel="stylesheet" type="text/css" href="./Css/Tabelas.css">
