@@ -79,7 +79,7 @@
     }
 
     function baixaPedido(id) {
-        alertify.confirm("ATENÇÃO", "CONFIRMAR BAIXA DO PEDIDO?", function() {
+        alertify.confirm("ATENÇÃO", "CONFIRMAR BAIXA DO PEDIDO NO APP?", function() {
             alertify.confirm().close();
             $.ajax({
                 type: "POST",
