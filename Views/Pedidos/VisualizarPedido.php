@@ -125,6 +125,7 @@
         obterDadosPedido(id);
         validarForm("formulario");
         campoObrigatorio(["taxaComissao"], true);
+        verificaStatus(getValor("status"));
     });
 
     $("#btnSalvar").click(function() {
@@ -210,12 +211,12 @@
 
     function verificaStatus(status) {
         if (status != "AGUARDANDO RETIRADA") {
-            bloquearCampos(["observacao"], true);
-            $("#btnSalvar").hide();
-            $("#btnSalvarPedidoEntregue").show();
-            $("#btnCancelar").hide();
+            bloquearCampo(["observacao", "lote"], true);
+            mostrarCampo(["btnSalvar", "btnCancelar"], false);
+            mostrarCampo(["btnSalvarPedidoEntregue"], true);
         }else{
-            $("#btnSalvarPedidoEntregue").hide();
+            mostrarCampo(["btnSalvarPedidoEntregue"], false);
+            bloquearCampo(["lote"], false);
         }
     }
 
