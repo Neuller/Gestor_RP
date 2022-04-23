@@ -92,7 +92,7 @@
 
     function initForm() {
         validarForm("formulario");
-        camposObrigatorios(["codigo", "nomeCliente", "caixaSelect", "dataEntrada"], true);
+        campoObrigatorio(["codigo", "nomeCliente", "caixaSelect", "dataEntrada"], true);
         $("#caixaSelect").select2();
     }
 

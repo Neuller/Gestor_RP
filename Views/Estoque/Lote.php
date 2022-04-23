@@ -53,7 +53,7 @@
 
     function initForm() {
         validarForm("formularioCadastro");
-        camposObrigatorios(["descricao"], true);
+        campoObrigatorio(["descricao"], true);
         $("#tabelaLote").load("./Views/Estoque/tabelaLote.php");
     }
 

@@ -46,7 +46,18 @@
                         <div class="col-md-6 col-sm-6 col-xs-6 itensForm">
                             <div>
                                 <label>LOCALIZAÇÃO</label>
-                                <input type="text" readonly class="form-control input-sm text-uppercase" id="lote" name="lote">
+                                <!-- <input type="text" readonly class="form-control input-sm text-uppercase" id="lote" name="lote"> -->
+                                <select class="form-control input-sm" id="lote" name="lote">
+                                    <option value="">SELECIONE UM LOTE</option>
+                                    <?php
+                                    $sql = "SELECT id_caixa, descricao FROM estoque_caixas WHERE status LIKE 'VAZIO' ORDER BY id_caixa DESC";
+                                    $result = mysqli_query($conexao, $sql);
+
+                                    while ($caixa = mysqli_fetch_row($result)) :
+                                    ?>
+                                        <option value="<?php echo $caixa[0] ?>"><?php echo $caixa[1] ?></option>
+                                    <?php endwhile; ?>
+                                </select>
                             </div>
                         </div>
 
@@ -113,7 +124,7 @@
         var id = "<?php echo @$id ?>";
         obterDadosPedido(id);
         validarForm("formulario");
-        camposObrigatorios(["taxaComissao"], true);
+        campoObrigatorio(["taxaComissao"], true);
     });
 
     $("#btnSalvar").click(function() {

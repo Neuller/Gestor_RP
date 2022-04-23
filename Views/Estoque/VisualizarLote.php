@@ -62,7 +62,7 @@
         id = "<?php echo @$id ?>";
         obterDadosCaixa(id);
         validarForm("formulario");
-        camposObrigatorios(["descricao"], true);
+        campoObrigatorio(["descricao"], true);
     }
 
     function setEvents() {

@@ -54,7 +54,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         validarForm("formulario");
-        camposObrigatorios(["data1", "data2"], true);
+        campoObrigatorio(["data1", "data2"], true);
     });
 
     $("#btnGerar").click(function() {
