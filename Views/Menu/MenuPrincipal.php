@@ -86,7 +86,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         validarForm("formReport");
-        camposObrigatorios(["report"], true);
+        campoObrigatorio(["report"], true);
     });
 
     $("#paginaPrincipal").click(function(e) {

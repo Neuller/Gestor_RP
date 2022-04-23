@@ -94,7 +94,7 @@
 
     function initForm() {
         validarForm("formulario");
-        esconderCampos(["groupCliente"]);
+        mostrarCampo(["groupCliente"], false);
         $("#clienteSelect").select2();
     }
 
@@ -139,8 +139,8 @@
         $("#clienteSelect").change(function() {
             var cliente = $("#clienteSelect").val();
             if (cliente != "") {
-                mostrarCampos(["groupCliente"]);
-                camposObrigatorios(["clienteSelect", "codigo", "dataEntrada"], true);
+                mostrarCampo(["groupCliente"], true);
+                campoObrigatorio(["clienteSelect", "codigo", "dataEntrada"], true);
                 $.ajax({
                     type: "POST",
                     data: "id=" + cliente,
@@ -160,7 +160,7 @@
                     }
                 });
             } else {
-                esconderCampos(["groupCliente"]);
+                mostrarCampo(["groupCliente"], false);
             }
         });
     }
