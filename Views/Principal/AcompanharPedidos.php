@@ -40,7 +40,7 @@
     });
 
     function entregaRapida(idPedido, idCaixa) {
-        alertify.confirm("ATENÇÃO", "CONFIRMAR ENTREGA RÁPIDA DO PEDIDO?", function() {
+        alertify.confirm("ATENÇÃO", "CONFIRMAR ENTREGA DO PEDIDO AO CLIENTE?", function() {
             alertify.confirm().close();
             $.ajax({
                 type: "POST",

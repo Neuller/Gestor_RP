@@ -46,7 +46,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-6 itensForm">
                             <div>
                                 <label>LOCALIZAÇÃO</label>
-                                <!-- <input type="text" readonly class="form-control input-sm text-uppercase" id="lote" name="lote"> -->
+                                <input type="hidden" class="form-control input-sm text-uppercase" id="loteAnterior" name="loteAnterior">
                                 <select class="form-control input-sm" id="lote" name="lote">
                                     <option value="">SELECIONE UM LOTE</option>
                                     <?php
@@ -104,9 +104,9 @@
 
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div>
-                                <span class="btn btn-danger btn-lg btnLayout" id="btnCancelar" title="CANCELAR PEDIDO" onclick="cancelarPedido()">CANCELAR PEDIDO</span>
                                 <span class="btn btn-warning btn-lg btnLayout" id="btnSalvar" title="SALVAR">SALVAR</span>
                                 <span class="btn btn-warning btn-lg btnLayout" id="btnSalvarPedidoEntregue" title="SALVAR">SALVAR</span>
+                                <span class="btn btn-danger btn-lg btnLayout" id="btnCancelar" title="CANCELAR PEDIDO" onclick="cancelarPedido()">CANCELAR PEDIDO</span>
                                 <span class="btn btn-danger btn-lg btnLayout" id="btnVoltar" title="VOLTAR" onclick="voltar()">VOLTAR</span>
                             </div>
                         </div>
@@ -135,22 +135,21 @@
         if (checkValidator == false) {
             alertify.error("PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS");
             return false;
-        }
-
-        dados = $("#formulario").serialize();
-
-        $.ajax({
-            type: "POST",
-            data: dados,
-            url: "./Procedimentos/Pedidos/AtualizarPedido.php",
-            success: function(r) {
-                if (r > 0) {
-                    alertify.success("PEDIDO ATUALIZADO");
-                } else {
-                    alertify.error("NÃO FOI POSSÍVEL ATUALIZAR O PEDIDO");
+        }else{
+            dados = $("#formulario").serialize();
+            $.ajax({
+                type: "POST",
+                data: dados,
+                url: "./Procedimentos/Pedidos/AtualizarPedido.php",
+                success: function(r) {
+                    if (r > 0) {
+                        alertify.success("PEDIDO ATUALIZADO");
+                    } else {
+                        alertify.error("NÃO FOI POSSÍVEL ATUALIZAR O PEDIDO");
+                    }
                 }
-            }
-        });
+            });
+        }
     });
 
     $("#btnSalvarPedidoEntregue").click(function() {
@@ -161,22 +160,21 @@
         if (checkValidator == false) {
             alertify.error("PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS");
             return false;
-        }
-
-        dados = $("#formulario").serialize();
-
-        $.ajax({
-            type: "POST",
-            data: dados,
-            url: "./Procedimentos/Pedidos/AtualizarPedidoEntregue.php",
-            success: function(r) {
-                if (r > 0) {
-                    alertify.success("PEDIDO ATUALIZADO");
-                } else {
-                    alertify.error("NÃO FOI POSSÍVEL ATUALIZAR O PEDIDO");
+        }else{
+            dados = $("#formulario").serialize();
+            $.ajax({
+                type: "POST",
+                data: dados,
+                url: "./Procedimentos/Pedidos/AtualizarPedidoEntregue.php",
+                success: function(r) {
+                    if (r > 0) {
+                        alertify.success("PEDIDO ATUALIZADO");
+                    } else {
+                        alertify.error("NÃO FOI POSSÍVEL ATUALIZAR O PEDIDO");
+                    }
                 }
-            }
-        });
+            });
+        }
     });
 
     function obterDadosPedido(id) {
@@ -195,7 +193,9 @@
                     url: './Procedimentos/Estoque/ObterDescLote.php',
                 }).then(function(data) {
                     var lote = JSON.parse(data);
-                    $("#lote").val(lote);
+                    $("#loteAnterior").val(dado.id_caixa);
+                    $("#lote").append("<option value="+ dado.id_caixa +">" + lote + "</option>");
+                    $("#lote").val($("option:contains(" + lote + ")").val());
                 });
                 $("#observacao").val(dado["observacoes"]);
                 $("#dataEntrada").val(dado["data_entrada"]);

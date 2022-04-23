@@ -32,7 +32,7 @@ $result = mysqli_query($conexao, $sql);
 					<td>STATUS</td>
 					<td>DATA DE ENTRADA</td>
 					<td>VISUALIZAR</td>
-					<td>ENTREGA RÁPIDA</td>
+					<td>ENTREGA</td>
 				</tr>
 			</thead>
 			<tbody>

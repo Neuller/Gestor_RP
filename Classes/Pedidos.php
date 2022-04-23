@@ -106,9 +106,21 @@ class pedidos{
         $c = new conectar();
         $conexao = $c -> conexao();
 
-        $sql = "UPDATE estoque_pedidos SET taxa_comissao = '$dados[1]', observacoes = '$dados[2]'
+        $sql = "UPDATE estoque_pedidos SET id_caixa = '$dados[1]', taxa_comissao = '$dados[2]', observacoes = '$dados[3]'
         WHERE id_pedido  = '$dados[0]'";
-        
+
+        $sql_lote_ocupado = "UPDATE estoque_caixas SET status = 'OCUPADO' WHERE id_caixa = '$dados[1]'";
+        mysqli_query($conexao, $sql_lote_ocupado);
+
+        $sql_consulta_lote = "SELECT * FROM estoque_pedidos WHERE id_caixa = '$dados[4]'";
+
+		$result = mysqli_query($conexao, $sql_consulta_lote);
+
+        if($result -> num_rows <= 1){
+            $sql_lote_vazio = "UPDATE estoque_caixas SET status = 'VAZIO' WHERE id_caixa = '$dados[4]'";
+            mysqli_query($conexao, $sql_lote_vazio);
+        }
+
         return mysqli_query($conexao, $sql);
     }
 
