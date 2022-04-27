@@ -195,7 +195,7 @@
                     var lote = JSON.parse(data);
                     $("#loteAnterior").val(dado.id_caixa);
                     $("#lote").append("<option value="+ dado.id_caixa +">" + lote + "</option>");
-                    $("#lote").val($("option:contains(" + lote + ")").val());
+                    $("#lote").val(dado.id_caixa).change();
                 });
                 $("#observacao").val(dado["observacoes"]);
                 $("#dataEntrada").val(dado["data_entrada"]);
