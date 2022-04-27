@@ -125,7 +125,6 @@
         obterDadosPedido(id);
         validarForm("formulario");
         campoObrigatorio(["taxaComissao"], true);
-        verificaStatus(getValor("status"));
     });
 
     $("#btnSalvar").click(function() {
