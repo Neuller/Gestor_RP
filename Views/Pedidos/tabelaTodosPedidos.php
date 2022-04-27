@@ -25,7 +25,7 @@ $result = mysqli_query($conexao, $sql);
 				<tr>
 					<td>CÓDIGO</td>
 					<td>NOME DO CLIENTE</td>
-					<td>DATA DE ENTREGA AO CLIENTE</td>
+					<td>DATA DE ENTREGA</td>
 					<td>VISUALIZAR</td>
 				</tr>
 			</thead>

@@ -47,58 +47,51 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        initForm();
-        setEvents();
-    });
-
-    function initForm() {
         validarForm("formularioCadastro");
         campoObrigatorio(["descricao"], true);
         $("#tabelaLote").load("./Views/Estoque/tabelaLote.php");
-    }
+    });
 
-    function setEvents() {
-        $("#btnCadastrar").click(function() {
-            var validator = $("#formularioCadastro").validate();
-            validator.form();
-            var checkValidator = validator.checkForm();
+    $("#btnCadastrar").click(function() {
+        var validator = $("#formularioCadastro").validate();
+        validator.form();
+        var checkValidator = validator.checkForm();
 
-            if (checkValidator == false) {
-                alertify.error("PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS");
-                return false;
-            } else {
-                dados = $("#formularioCadastro").serialize();
-                $.ajax({
-                    type: "POST",
-                    data: dados,
-                    url: "./Procedimentos/Estoque/ConsultarCadastroLote.php",
-                    success: function(r) {
-                        retorno = parseInt(jQuery.parseJSON(r));
-                        if (retorno > 0) {
-                            alertify.error("LOTE COM DESCRIÇÃO JÁ CADASTRADO");
-                            $("#descricao").val("");
-                            return false;
-                        } else {
-                            $.ajax({
-                                type: "POST",
-                                data: dados,
-                                url: "./Procedimentos/Estoque/CadastrarLote.php",
-                                success: function(r) {
-                                    if (r > 0) {
-                                        $("#formularioCadastro")[0].reset();
-                                        $("#tabelaLote").load("./Views/Estoque/tabelaLote.php");
-                                        alertify.success("CADASTRO REALIZADO");
-                                    } else {
-                                        alertify.error("NÃO FOI POSSÍVEL CADASTRAR");
-                                    }
+        if (checkValidator == false) {
+            alertify.error("PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS");
+            return false;
+        } else {
+            dados = $("#formularioCadastro").serialize();
+            $.ajax({
+                type: "POST",
+                data: dados,
+                url: "./Procedimentos/Estoque/ConsultarCadastroLote.php",
+                success: function(r) {
+                    retorno = parseInt(jQuery.parseJSON(r));
+                    if (retorno > 0) {
+                        alertify.error("ITEM JÁ CADASTRADO");
+                        $("#descricao").val("");
+                        return false;
+                    } else {
+                        $.ajax({
+                            type: "POST",
+                            data: dados,
+                            url: "./Procedimentos/Estoque/CadastrarLote.php",
+                            success: function(r) {
+                                if (r > 0) {
+                                    $("#formularioCadastro")[0].reset();
+                                    $("#tabelaLote").load("./Views/Estoque/tabelaLote.php");
+                                    alertify.success("SUCESSO");
+                                } else {
+                                    alertify.error("ERRO, CONTATE O ADMINISTRADOR");
                                 }
-                            });
-                        }
+                            }
+                        });
                     }
-                });
-            }
-        });
-    }
+                }
+            });
+        }
+    });
 
     function visualizar(id) {
         $("#conteudo").load("./Views/Estoque/VisualizarLote.php?id=" + id);

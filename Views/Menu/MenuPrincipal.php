@@ -137,9 +137,9 @@
                 if (r > 0) {
                     $("#formReport")[0].reset();
                     $("#modalReport").modal("hide");
-                    alertify.success("ENVIO REALIZADO");
+                    alertify.success("SUCESSO");
                 } else {
-                    alertify.error("NÃO FOI POSSÍVEL ENVIAR");
+                    alertify.error("ERRO, CONTATE O ADMINISTRADOR");
                 }
             }
         });

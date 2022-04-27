@@ -88,17 +88,11 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        initForm();
-        setEvents();
-    });
-
-    function initForm() {
         validarForm("formulario");
         mostrarCampo(["groupCliente"], false);
         $("#clienteSelect").select2();
-    }
+    });
 
-    function setEvents() {
         $("#btnVincular").click(function() {
             var validator = $("#formulario").validate();
             validator.form();
@@ -118,10 +112,10 @@
                 success: function(r) {
                     if (r > 0) {
                         $("#conteudo").load("./Views/Pedidos/VincularPedido.php");
-                        alertify.success("VÍNCULO ENTRE PEDIDOS REALIZADO");
+                        alertify.success("SUCESSO");
                     } else {
                         $("#conteudo").load("./Views/Pedidos/VincularPedido.php");
-                        alertify.error("NÃO FOI POSSÍVEL VINCULAR");
+                        alertify.error("ERRO, CONTATE O ADMINISTRADOR");
                     }
                 }
             });
@@ -131,7 +125,7 @@
             var dataEntrada = $("#dataEntrada").val();
             var dataAtual = moment().format('YYYY-MM-DD');
             if (dataEntrada > dataAtual) {
-                alertify.alert("ATENÇÃO", "DATA DE ENTRADA NÃO PODE SER MAIOR QUE A DATA ATUAL.");
+                alertify.alert("ATENÇÃO", "DATA DE ENTRADA NÃO PODE SER MAIOR QUE A DATA ATUAL");
                 $("#dataEntrada").val("");
             }
         });
@@ -163,5 +157,4 @@
                 mostrarCampo(["groupCliente"], false);
             }
         });
-    }
 </script>

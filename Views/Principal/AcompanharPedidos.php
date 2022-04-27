@@ -60,11 +60,11 @@
                             if (r > 0) {
                                 $("#tabelaPedidosPendentesRetirada").load("./Views/Principal/tabelaPedidosPendentesRetirada.php");
                                 $("#tabelaPedidosPendentesBaixa").load("./Views/Principal/TabelaPedidosPendentesBaixa.php");
-                                alertify.success("ENTREGA REALIZADA");
+                                alertify.success("SUCESSO");
                             } else {
                                 $("#tabelaPedidosPendentesRetirada").load("./Views/Principal/tabelaPedidosPendentesRetirada.php");
                                 $("#tabelaPedidosPendentesBaixa").load("./Views/Principal/TabelaPedidosPendentesBaixa.php");
-                                alertify.error("ERRO AO REALIZAR ENTREGA, CONTATE O ADMINISTRADOR");
+                                alertify.error("ERRO, CONTATE O ADMINISTRADOR");
                             }
                         }
                     });
@@ -79,7 +79,7 @@
     }
 
     function baixaPedido(id) {
-        alertify.confirm("ATENÇÃO", "CONFIRMAR BAIXA DO PEDIDO NO APP?", function() {
+        alertify.confirm("ATENÇÃO", "CONFIRMAR BAIXA DO PEDIDO NO APLICATIVO?", function() {
             alertify.confirm().close();
             $.ajax({
                 type: "POST",
@@ -89,11 +89,11 @@
                     if (r > 0) {
                         $("#tabelaPedidosPendentesRetirada").load("./Views/Principal/tabelaPedidosPendentesRetirada.php");
                         $("#tabelaPedidosPendentesBaixa").load("./Views/Principal/TabelaPedidosPendentesBaixa.php");
-                        alertify.success("BAIXA DO PEDIDO REALIZADA");
+                        alertify.success("SUCESSO");
                     } else {
                         $("#tabelaPedidosPendentesRetirada").load("./Views/Principal/tabelaPedidosPendentesRetirada.php");
                         $("#tabelaPedidosPendentesBaixa").load("./Views/Principal/TabelaPedidosPendentesBaixa.php");
-                        alertify.error("ERRO AO REALIZAR BAIXA, CONTATE O ADMINISTRADOR");
+                        alertify.error("ERRO, CONTATE O ADMINISTRADOR");
                     }
                 }
             });

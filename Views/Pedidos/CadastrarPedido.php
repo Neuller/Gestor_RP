@@ -86,53 +86,46 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        initForm();
-        setEvents();
-    });
-
-    function initForm() {
         validarForm("formulario");
         campoObrigatorio(["codigo", "nomeCliente", "caixaSelect", "dataEntrada"], true);
         $("#caixaSelect").select2();
-    }
+    });
+    
+    $("#btnCadastrar").click(function() {
+        var validator = $("#formulario").validate();
+        validator.form();
+        var checkValidator = validator.checkForm();
 
-    function setEvents() {
-        $("#btnCadastrar").click(function() {
-            var validator = $("#formulario").validate();
-            validator.form();
-            var checkValidator = validator.checkForm();
+        if (checkValidator == false) {
+            alertify.error("PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS");
+            return false;
+        }
 
-            if (checkValidator == false) {
-                alertify.error("PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS");
-                return false;
-            }
+        dados = $("#formulario").serialize();
 
-            dados = $("#formulario").serialize();
-
-            $.ajax({
-                type: "POST",
-                data: dados,
-                url: "./Procedimentos/Pedidos/CadastrarPedido.php",
-                success: function(r) {
-                    if (r > 0) {
-                        $("#conteudo").load("./Views/Pedidos/CadastrarPedido.php");
-                        alertify.success("CADASTRO REALIZADO");
-                    } else {
-                        $("#formulario")[0].reset();
-                        $("#caixaSelect").val("").change();
-                        alertify.error("NÃO FOI POSSÍVEL CADASTRAR");
-                    }
+        $.ajax({
+            type: "POST",
+            data: dados,
+            url: "./Procedimentos/Pedidos/CadastrarPedido.php",
+            success: function(r) {
+                if (r > 0) {
+                    $("#conteudo").load("./Views/Pedidos/CadastrarPedido.php");
+                    alertify.success("SUCESSO");
+                } else {
+                    $("#formulario")[0].reset();
+                    $("#caixaSelect").val("").change();
+                    alertify.error("ERRO, CONTATE O ADMINISTRADOR");
                 }
-            });
-        });
-
-        $("#dataEntrada").change(function() {
-            var dataEntrada = $("#dataEntrada").val();
-            var dataAtual = moment().format('YYYY-MM-DD')
-            if (dataEntrada > dataAtual) {
-                alertify.alert("ATENÇÃO", "DATA DE ENTRADA NÃO PODE SER MAIOR QUE A DATA ATUAL.");
-                $("#dataEntrada").val("");
             }
         });
-    }
+    });
+
+    $("#dataEntrada").change(function() {
+        var dataEntrada = $("#dataEntrada").val();
+        var dataAtual = moment().format('YYYY-MM-DD')
+        if (dataEntrada > dataAtual) {
+            alertify.alert("ATENÇÃO", "DATA DE ENTRADA NÃO PODE SER MAIOR QUE A DATA ATUAL");
+            $("#dataEntrada").val("");
+        }
+    });
 </script>

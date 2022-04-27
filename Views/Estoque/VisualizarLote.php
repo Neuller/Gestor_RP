@@ -54,65 +54,62 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        initForm();
-        setEvents();
-    });
-
-    function initForm() {
         id = "<?php echo @$id ?>";
         obterDadosCaixa(id);
         validarForm("formulario");
         campoObrigatorio(["descricao"], true);
-    }
+    });
 
-    function setEvents() {
-        $("#btnSalvar").click(function() {
-            var validator = $("#formulario").validate();
-            validator.form();
-            var checkValidator = validator.checkForm();
+    $("#btnSalvar").click(function() {
+        var validator = $("#formulario").validate();
+        validator.form();
+        var checkValidator = validator.checkForm();
 
-            if (checkValidator == false) {
-                alertify.error("PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS");
-                return false;
+        if (checkValidator == false) {
+            alertify.error("PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS");
+            return false;
+        }
+
+        dados = $("#formulario").serialize();
+
+        $.ajax({
+            type: "POST",
+            data: dados,
+            url: "./Procedimentos/Estoque/AtualizarLote.php",
+            success: function(r) {
+                if (r > 0) {
+                    alertify.success("SUCESSO");
+                } else {
+                    alertify.error("ERRO, CONTATE O ADMINISTRADOR");
+                }
             }
+        });
+    });
 
-            dados = $("#formulario").serialize();
-
+    $("#btnInativar").click(function() {
+        dados = $("#formulario").serialize();
+        alertify.confirm("ATENÇÃO", "CONFIRMAR INATIVAÇÃO?", function() {
+            alertify.confirm().close();
             $.ajax({
                 type: "POST",
                 data: dados,
-                url: "./Procedimentos/Estoque/AtualizarLote.php",
+                url: "./Procedimentos/Estoque/InativarLote.php",
                 success: function(r) {
                     if (r > 0) {
-                        alertify.success("REGISTRO ATUALIZADO");
+                        alertify.success("SUCESSO");
+                        $("#conteudo").load("./Views/Estoque/Lote.php");
                     } else {
-                        alertify.error("NÃO FOI POSSÍVEL ATUALIZAR REGISTRO");
+                        alertify.error("ERRO, CONTATE O ADMINISTRADOR");
                     }
                 }
             });
+        }, function() {}).set({
+            labels: {
+                ok: "SIM",
+                cancel: "NÃO"
+            }
         });
-
-        $("#btnInativar").click(function() {
-            dados = $("#formulario").serialize();
-
-            alertify.confirm("ATENÇÃO", "CONFIRMAR INATIVAÇÃO DO REGISTRO?", function() {
-                alertify.confirm().close();
-                $.ajax({
-                    type: "POST",
-                    data: dados,
-                    url: "./Procedimentos/Estoque/InativarLote.php",
-                    success: function(r) {
-                        if (r > 0) {
-                            alertify.success("REGISTRO INATIVADO");
-                            $("#conteudo").load("./Views/Estoque/Lote.php");
-                        } else {
-                            alertify.error("NÃO FOI POSSÍVEL INATIVAR REGISTRO");
-                        }
-                    }
-                });
-            }, function() {});
-        });
-    }
+    });
 
     function obterDadosCaixa(id) {
         $.ajax({

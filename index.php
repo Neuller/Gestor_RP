@@ -42,7 +42,7 @@ clearstatcache();
 			$.ajax({
 				url: "./Procedimentos/Configuracoes/BackupManual.php",
 				success: function(r) {
-					alertify.success("BACKUP REALIZADO COM SUCESSO");
+					alertify.success("SUCESSO");
 				}
 			});
 		}, function() {}).set({
