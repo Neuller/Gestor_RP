@@ -85,7 +85,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-6 itensForm">
                             <div>
                                 <label>VALOR DO PEDIDO</label>
-                                <input type="number" readonly class="form-control input-sm text-uppercase" id="valorPedido" name="valorPedido">
+                                <input type="number" class="form-control input-sm text-uppercase" id="valorPedido" name="valorPedido">
                             </div>
                         </div>
 
@@ -217,12 +217,12 @@
 
     function verificaStatus(status) {
         if (status != "AGUARDANDO RETIRADA") {
-            bloquearCampo(["observacao", "lote"], true);
+            bloquearCampo(["observacao", "lote", "valorPedido"], true);
             mostrarCampo(["btnSalvar", "btnCancelar"], false);
             mostrarCampo(["btnSalvarPedidoEntregue"], true);
         }else{
             mostrarCampo(["btnSalvarPedidoEntregue"], false);
-            bloquearCampo(["lote"], false);
+            bloquearCampo(["lote", "valorPedido"], false);
         }
     }
 
@@ -254,5 +254,23 @@
                 cancel: "NÃO"
             }
         });
+    }
+
+    
+    $("#valorPedido").change(function() {
+        calcularTaxaComissao();
+    });
+
+    function calcularTaxaComissao(){
+        let valorPedido = $("#valorPedido").val();
+        let taxaComissao = $("#taxaComissao").val();
+        if(parseFloat(valorPedido) >= 20){
+            $("#taxaComissao").val(1);
+        } else if (parseFloat(valorPedido) < 20){
+            var porcentagem5 = 5 / 100 * parseFloat(valorPedido);
+            $("#taxaComissao").val(porcentagem5.toFixed(2));
+        } else {
+            $("#taxaComissao").val(0);
+        }
     }
 </script>

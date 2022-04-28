@@ -120,7 +120,7 @@ class pedidos{
         }
 
         // ATUALIZAR PEDIDO
-        $sql = "UPDATE estoque_pedidos SET id_caixa = '$dados[1]', taxa_comissao = '$dados[2]', observacoes = '$dados[3]'
+        $sql = "UPDATE estoque_pedidos SET id_caixa = '$dados[1]', taxa_comissao = '$dados[2]', observacoes = '$dados[3]', valor_pedido = '$dados[5]'
         WHERE id_pedido  = '$dados[0]'";
 
         return mysqli_query($conexao, $sql);
