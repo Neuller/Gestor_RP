@@ -4,7 +4,7 @@
 <head>
     <?php require_once "../../Classes/Conexao.php";
     $c = new conectar();
-    $conexao = $c->conexao();
+    $conexao = $c -> conexao();
     $id = $_GET["id"];
     ?>
 </head>
@@ -143,9 +143,9 @@
                 url: "./Procedimentos/Pedidos/AtualizarPedido.php",
                 success: function(r) {
                     if (r > 0) {
-                        alertify.success("PEDIDO ATUALIZADO");
+                        alertify.success("SUCESSO");
                     } else {
-                        alertify.error("NÃO FOI POSSÍVEL ATUALIZAR O PEDIDO");
+                        alertify.error("ERRO, CONTATE O ADMINISTRADOR");
                     }
                 }
             });
@@ -168,9 +168,9 @@
                 url: "./Procedimentos/Pedidos/AtualizarPedidoEntregue.php",
                 success: function(r) {
                     if (r > 0) {
-                        alertify.success("PEDIDO ATUALIZADO");
+                        alertify.success("SUCESSO");
                     } else {
-                        alertify.error("NÃO FOI POSSÍVEL ATUALIZAR O PEDIDO");
+                        alertify.error("ERRO, CONTATE O ADMINISTRADOR");
                     }
                 }
             });
@@ -190,7 +190,7 @@
                 $.ajax({
                     type: "POST",
                     data: "idLote=" + dado.id_caixa,
-                    url: './Procedimentos/Estoque/ObterDescLote.php',
+                    url: "./Procedimentos/Estoque/ObterDescLote.php",
                 }).then(function(data) {
                     var lote = JSON.parse(data);
                     $("#loteAnterior").val(dado.id_caixa);
@@ -226,7 +226,7 @@
     function cancelarPedido() {
         let id = $("#id").val();
         let lote = $("#lote").val();
-        alertify.confirm('ATENÇÃO', 'CONFIRMAR CANCELAMENTO DO PEDIDO?', function() {
+        alertify.confirm("ATENÇÃO", "CONFIRMAR CANCELAMENTO?", function() {
             alertify.confirm().close();
             $.ajax({
                 type: "POST",
@@ -234,10 +234,10 @@
                 url: "./Procedimentos/Pedidos/CancelarPedido.php",
                 success: function(r) {
                     if (r > 0) {
-                        $('#conteudo').load("./Views/Principal/AcompanharPedidos.php");
-                        alertify.success("PEDIDO CANCELADO");
+                        $("#conteudo").load("./Views/Principal/AcompanharPedidos.php");
+                        alertify.success("SUCESSO");
                     } else {
-                        alertify.error("NÃO FOI POSSÍVEL CANCELAR O PEDIDO");
+                        alertify.error("ERRO, CONTATE O ADMINISTRADOR");
                     }
                 }
             });

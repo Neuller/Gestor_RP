@@ -66,11 +66,12 @@
             alertify.error("PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS");
             return false;
         } else if (getValor("data1") > getValor("data2")){
-            alertify.error("DATA FORA DO PERMITIDO, VERIFIQUE OS CAMPOS");
+            alertify.alert("ATENÇÃO", "DATAS INVÁLIDAS, VERIFIQUE OS CAMPOS");
             return false;
         } else {
             dados = $("#formulario").serialize();
             $("#tabelaRelatorios").load("./Views/Relatorios/TabelaRelatorios.php", dados);
+            alertify.success("SUCESSO");
         }
     });
 </script>
