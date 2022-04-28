@@ -4,8 +4,8 @@ class pedidos{
         $c = new conectar();
         $conexao = $c -> conexao();
 
-		$sql = "INSERT INTO estoque_pedidos (codigo, nome_cliente, id_caixa, observacoes, data_entrada, status) 
-		VALUES ('$dados[0]', '$dados[1]', '$dados[2]', '$dados[3]', '$dados[4]', 'AGUARDANDO RETIRADA')";
+		$sql = "INSERT INTO estoque_pedidos (codigo, nome_cliente, id_caixa, observacoes, data_entrada, status, taxa_comissao, valor_pedido) 
+		VALUES ('$dados[0]', '$dados[1]', '$dados[2]', '$dados[3]', '$dados[6]', 'AGUARDANDO RETIRADA', '$dados[5]', '$dados[4]')";
 
         $sql_lote = "UPDATE estoque_caixas SET status = 'OCUPADO' WHERE id_caixa = '$dados[2]'";
 
@@ -80,7 +80,7 @@ class pedidos{
         $c = new conectar();
 		$conexao = $c -> conexao();
 
-		$sql = "SELECT id_pedido , codigo, nome_cliente, id_caixa, observacoes, data_entrada, data_saida, status, data_saida_baixa, taxa_comissao
+		$sql = "SELECT id_pedido , codigo, nome_cliente, id_caixa, observacoes, data_entrada, data_saida, status, data_saida_baixa, taxa_comissao, valor_pedido
 		FROM estoque_pedidos WHERE id_pedido = '$id'";
 
 		$result = mysqli_query($conexao, $sql);
@@ -96,7 +96,8 @@ class pedidos{
 			'data_saida' => $mostrar[6],
 			'status' => $mostrar[7],
 			'data_saida_baixa' => $mostrar[8],
-			'taxa_comissao' => $mostrar[9]
+			'taxa_comissao' => $mostrar[9],
+			'valor_pedido' => $mostrar[10]
 		);
 
 		return $dados;

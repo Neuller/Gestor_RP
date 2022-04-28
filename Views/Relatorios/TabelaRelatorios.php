@@ -9,7 +9,7 @@ $objUtils = new utilitarios();
 $data1 = $_GET["data1"];
 $data2 = $_GET["data2"];
 
-$sql = "SELECT codigo, nome_cliente, id_caixa, data_entrada, data_saida, status, data_saida_baixa, taxa_comissao
+$sql = "SELECT codigo, nome_cliente, id_caixa, data_entrada, data_saida, status, data_saida_baixa, taxa_comissao, valor_pedido
 FROM estoque_pedidos 
 WHERE data_entrada >= '$data1' AND data_entrada <= '$data2'
 ORDER BY id_pedido DESC";
@@ -29,6 +29,7 @@ $result = mysqli_query($conexao, $sql);
 					<td>LOCALIZAÇÃO</td>
 					<td>STATUS</td>
 					<td>COMISSÃO</td>
+					<td>VALOR DO PEDIDO</td>
 					<td>DATA DE ENTRADA</td>
 					<td>DATA DE SAÍDA</td>
 					<td>DATA DE BAIXA</td>
@@ -44,6 +45,7 @@ $result = mysqli_query($conexao, $sql);
 						<td>' . $objUtils -> nomeEstoqueCaixa($mostrar[2]) . '</td>
 						<td>' . $mostrar[5] . '</td>
 						<td>' . $mostrar[7] . '</td>
+						<td>' . $mostrar[8] . '</td>
                         <td>' . $objUtils -> data($mostrar[3]) . '</td>
                         <td>' . $objUtils -> data($mostrar[4]) . '</td>
                         <td>' . $objUtils -> data($mostrar[6]) . '</td>

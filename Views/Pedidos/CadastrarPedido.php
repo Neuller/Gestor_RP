@@ -57,6 +57,19 @@
                             </div>
                         </div>
 
+                        <div class="col-md-6 col-sm-6 col-xs-6 itensForm">
+                            <div>
+                                <label>VALOR DO PEDIDO</label>
+                                <input type="number" class="form-control input-sm text-uppercase" id="valorPedido" name="valorPedido">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-xs-6 itensForm">
+                            <div>
+                                <label>TAXA DE COMISSÃO</label>
+                                <input type="number" class="form-control input-sm text-uppercase" id="taxaComissao" name="taxaComissao">
+                            </div>
+                        </div>
 
                         <div class="col-md-12 col-sm-12 col-xs-12 itensForm">
                             <div class="text-left">
@@ -121,11 +134,28 @@
     });
 
     $("#dataEntrada").change(function() {
-        var dataEntrada = $("#dataEntrada").val();
-        var dataAtual = moment().format('YYYY-MM-DD')
+        let dataEntrada = $("#dataEntrada").val();
+        let dataAtual = moment().format('YYYY-MM-DD')
         if (dataEntrada > dataAtual) {
             alertify.alert("ATENÇÃO", "DATA DE ENTRADA NÃO PODE SER MAIOR QUE A DATA ATUAL");
             $("#dataEntrada").val("");
         }
     });
+
+    $("#valorPedido").change(function() {
+        calcularTaxaComissao();
+    });
+
+    function calcularTaxaComissao(){
+        let valorPedido = $("#valorPedido").val();
+        let taxaComissao = $("#taxaComissao").val();
+        if(parseFloat(valorPedido) >= 20){
+            $("#taxaComissao").val(1);
+        } else if (parseFloat(valorPedido) < 20){
+            var porcentagem5 = 5 / 100 * parseFloat(valorPedido);
+            $("#taxaComissao").val(porcentagem5.toFixed(2));
+        } else {
+            $("#taxaComissao").val(0);
+        }
+    }
 </script>

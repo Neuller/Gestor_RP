@@ -63,14 +63,6 @@
 
                         <div class="col-md-6 col-sm-6 col-xs-6 itensForm">
                             <div>
-                                <label>TAXA DE COMISSÃO</label>
-                                <input type="number" class="form-control input-sm text-uppercase" id="taxaComissao" name="taxaComissao">
-                            </div>
-                        </div>
-
-
-                        <div class="col-md-6 col-sm-6 col-xs-6 itensForm">
-                            <div>
                                 <label>DATA DE ENTRADA</label>
                                 <input type="date" readonly class="form-control input-sm text-uppercase" id="dataEntrada" name="dataEntrada">
                             </div>
@@ -87,6 +79,20 @@
                             <div>
                                 <label>DATA DE BAIXA NO APP</label>
                                 <input type="date" readonly class="form-control input-sm text-uppercase" id="dataBaixa" name="dataBaixa">
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-sm-6 col-xs-6 itensForm">
+                            <div>
+                                <label>VALOR DO PEDIDO</label>
+                                <input type="number" readonly class="form-control input-sm text-uppercase" id="valorPedido" name="valorPedido">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-xs-6 itensForm">
+                            <div>
+                                <label>TAXA DE COMISSÃO</label>
+                                <input type="number" class="form-control input-sm text-uppercase" id="taxaComissao" name="taxaComissao">
                             </div>
                         </div>
 
@@ -202,6 +208,7 @@
                 $("#dataSaida").val(dado["data_saida"]);
                 $("#status").val(dado["status"]);
                 $("#taxaComissao").val(dado["taxa_comissao"]);
+                $("#valorPedido").val(dado["valor_pedido"]);
                 $("#dataBaixa").val(dado["data_saida_baixa"]);
                 verificaStatus(dado["status"]);
             }

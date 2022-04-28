@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17-Nov-2021 às 19:44
--- Versão do servidor: 10.4.19-MariaDB
--- versão do PHP: 7.3.28
+-- Tempo de geração: 28-Abr-2022 às 02:25
+-- Versão do servidor: 10.4.24-MariaDB
+-- versão do PHP: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -60,7 +60,8 @@ CREATE TABLE `estoque_pedidos` (
   `data_saida` date DEFAULT NULL,
   `status` varchar(50) DEFAULT NULL,
   `data_saida_baixa` date DEFAULT NULL,
-  `taxa_comissao` decimal(10,2) DEFAULT NULL
+  `taxa_comissao` decimal(10,2) DEFAULT NULL,
+  `valor_pedido` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
